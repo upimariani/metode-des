@@ -26,6 +26,8 @@ class cDokter extends CI_Controller
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('no_hp', 'No Telepon', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('Admin/Layout/aside');
@@ -55,7 +57,9 @@ class cDokter extends CI_Controller
 					'jk' => $this->input->post('jk'),
 					'alamat' => $this->input->post('alamat'),
 					'no_telp' => $this->input->post('no_hp'),
-					'foto' => $upload_data['file_name']
+					'foto' => $upload_data['file_name'],
+					'username' => $this->input->post('username'),
+					'password' => $this->input->post('password'),
 				);
 				$this->mDokter->insert($data);
 				$this->session->set_flashdata('success', 'Data Dokter Berhasil Ditambahkan!');
@@ -70,6 +74,8 @@ class cDokter extends CI_Controller
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('no_hp', 'No Telepon', 'required');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		if ($this->form_validation->run() == TRUE) {
 			$config['upload_path']          = './asset/foto-dokter';
@@ -96,7 +102,9 @@ class cDokter extends CI_Controller
 					'jk' => $this->input->post('jk'),
 					'alamat' => $this->input->post('alamat'),
 					'no_telp' => $this->input->post('no_hp'),
-					'foto' => $upload_data['file_name']
+					'foto' => $upload_data['file_name'],
+					'username' => $this->input->post('username'),
+					'password' => $this->input->post('password'),
 				);
 				$this->mDokter->update($id, $data);
 				$this->session->set_flashdata('success', 'Data Dokter Berhasil Diperbaharui !!!');
@@ -107,7 +115,9 @@ class cDokter extends CI_Controller
 				'ahli_dokter' => $this->input->post('ahli'),
 				'jk' => $this->input->post('jk'),
 				'alamat' => $this->input->post('alamat'),
-				'no_telp' => $this->input->post('no_hp')
+				'no_telp' => $this->input->post('no_hp'),
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password'),
 			);
 			$this->mDokter->update($id, $data);
 			$this->session->set_flashdata('success', 'Data Dokter Berhasil Diperbaharui !!!');

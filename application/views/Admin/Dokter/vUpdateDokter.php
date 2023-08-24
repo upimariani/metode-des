@@ -40,6 +40,16 @@
 							<?= form_error('no_hp', '<small class="text-danger">', '</small>') ?>
 						</div>
 						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Username</label>
+							<input type="text" name="username" value="<?= $dokter->username ?>" class="form-control" id="input-4" placeholder="Masukkan Username">
+							<?= form_error('username', '<small class="text-danger">', '</small>') ?>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Password</label>
+							<input type="text" name="password" value="<?= $dokter->password ?>" class="form-control" id="input-4" placeholder="Masukkan Password">
+							<?= form_error('password', '<small class="text-danger">', '</small>') ?>
+						</div>
+						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Foto Dokter</label><br>
 							<img style="width: 150px;" src="<?= base_url('asset/foto-dokter/' . $dokter->foto) ?>">
 							<input type="file" name="gambar" class="form-control" id="input-5" placeholder="Masukkan Password">

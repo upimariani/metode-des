@@ -17,7 +17,7 @@
 								<option value="">---Pilih Jenis Kelamin---</option>
 								<option value="Laki - Laki">Laki - Laki</option>
 								<option value="Perempuan">Perempuan</option>
-							</select> 
+							</select>
 							<?= form_error('jk', '<small class="text-danger">', '</small>') ?>
 						</div>
 						<div class="mb-3">
@@ -34,6 +34,16 @@
 							<label for="exampleInputEmail1" class="form-label">No Telepon</label>
 							<input type="text" name="no_hp" class="form-control" id="input-4" placeholder="Masukkan No Telepon">
 							<?= form_error('no_hp', '<small class="text-danger">', '</small>') ?>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Username</label>
+							<input type="text" name="username" class="form-control" id="input-4" placeholder="Masukkan Username">
+							<?= form_error('username', '<small class="text-danger">', '</small>') ?>
+						</div>
+						<div class="mb-3">
+							<label for="exampleInputEmail1" class="form-label">Password</label>
+							<input type="text" name="password" class="form-control" id="input-4" placeholder="Masukkan Password">
+							<?= form_error('password', '<small class="text-danger">', '</small>') ?>
 						</div>
 						<div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Foto Dokter</label>

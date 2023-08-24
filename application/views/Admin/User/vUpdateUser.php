@@ -53,7 +53,16 @@
 														}  ?>>Admin</option>
 									<option value="2" <?php if ($user->level_user == '2') {
 															echo 'selected';
-														}  ?>>Rekam Medis</option>
+														}  ?>>Rekam Medis ISPA</option>
+									<option value="3" <?php if ($user->level_user == '3') {
+															echo 'selected';
+														}  ?>>Rekam Medis Pneumonia</option>
+									<option value="4" <?php if ($user->level_user == '4') {
+															echo 'selected';
+														}  ?>>Rekam Medis TBC</option>
+									<option value="5" <?php if ($user->level_user == '5') {
+															echo 'selected';
+														}  ?>>Rekam Medis Diare</option>
 								</select>
 								<?= form_error('level', '<small class="text-danger">', '</small>') ?>
 							</div>

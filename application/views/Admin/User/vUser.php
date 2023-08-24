@@ -40,9 +40,7 @@
 									<th class="border-bottom-0">
 										<h6 class="fw-semibold mb-0">Akun</h6>
 									</th>
-									<th class="border-bottom-0">
-										<h6 class="fw-semibold mb-0">Level User</h6>
-									</th>
+
 									<th class="border-bottom-0">
 										<h6 class="fw-semibold mb-0">Action</h6>
 									</th>
@@ -69,23 +67,34 @@
 										</td>
 										<td class="border-bottom-0">
 											<p class="mb-0 fw-normal"><?= $value->username ?> | <?= $value->password ?></p>
-										</td>
-										<td class="border-bottom-0">
 											<div class="d-flex align-items-center gap-2">
 												<?php
 												if ($value->level_user == '1') {
 												?>
 													<span class="badge bg-primary rounded-3 fw-semibold">Admin</span>
 												<?php
-												} else {
+												} else if ($value->level_user == '2') {
 												?>
-													<span class="badge bg-success rounded-3 fw-semibold">Rekam Medis</span>
+													<span class="badge bg-info rounded-3 fw-semibold">Rekam Medis ISPA</span>
+												<?php
+												} else if ($value->level_user == '3') {
+												?>
+													<span class="badge bg-success rounded-3 fw-semibold">Rekam Medis Pneumonia</span>
+												<?php
+												} else if ($value->level_user == '4') {
+												?>
+													<span class="badge bg-warning rounded-3 fw-semibold">Rekam Medis TBC</span>
+												<?php
+												} else if ($value->level_user == '5') {
+												?>
+													<span class="badge bg-danger rounded-3 fw-semibold">Rekam Medis Diare</span>
 												<?php
 												}
 												?>
 
 											</div>
 										</td>
+
 										<td class="border-bottom-0">
 											<h6 class="fw-semibold mb-0 fs-4">
 												<a href="<?= base_url('Admin/cUser/delete/' . $value->id_user) ?>" class="btn btn-danger m-1">Hapus</a>

@@ -45,7 +45,10 @@
 								<select name="level" class="form-control">
 									<option value="">---Pilih Level User---</option>
 									<option value="1">Admin</option>
-									<option value="2">Rekam Medis</option>
+									<option value="2">Rekam Medis ISPA</option>
+									<option value="3">Rekam Medis Pneumonia</option>
+									<option value="4">Rekam Medis TBC</option>
+									<option value="5">Rekam Medis Diare</option>
 								</select>
 								<?= form_error('level', '<small class="text-danger">', '</small>') ?>
 							</div>
