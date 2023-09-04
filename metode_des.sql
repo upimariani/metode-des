@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 23, 2023 at 04:44 PM
+-- Generation Time: Sep 03, 2023 at 06:01 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -79,7 +79,8 @@ CREATE TABLE `boking_jdwl` (
 --
 
 INSERT INTO `boking_jdwl` (`id_boking`, `id_pasien`, `id_jadwal`, `tgl_boking`, `tgl_periksa`, `no_antrian`, `keluhan_pasien`, `stat_boking`) VALUES
-(1, 1, 1, '2023-08-23', '2023-08-28', 1, 'sakit batuk, filek', 2);
+(1, 1, 1, '2023-08-23', '2023-08-28', 1, 'sakit batuk, filek', 2),
+(3, 1, 3, '2023-08-29', '2023-09-04', 1, 'saki kepala', 0);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE `diagnosa_dokter` (
 --
 
 INSERT INTO `diagnosa_dokter` (`id_diagnosa`, `id_penyakit`, `id_boking`, `detail_penyakit`, `saran`, `resep_dokter`) VALUES
-(1, 1, 1, 'gfh', 'ghjv', 'ygtt');
+(1, 1, 1, 'dada sesak', 'istirahat yang cukup', 'Paracetamol');
 
 -- --------------------------------------------------------
 
@@ -330,7 +331,7 @@ ALTER TABLE `analisis_des`
 -- AUTO_INCREMENT for table `boking_jdwl`
 --
 ALTER TABLE `boking_jdwl`
-  MODIFY `id_boking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_boking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `diagnosa_dokter`

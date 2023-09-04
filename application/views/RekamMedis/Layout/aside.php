@@ -51,7 +51,14 @@
 								<span class="hide-menu">ANALISIS PENYAKIT</span>
 							</a>
 						</li>
-
+						<li class="sidebar-item">
+							<a class="sidebar-link" href="<?= base_url('RekamMedis/cHistory') ?>" aria-expanded="false">
+								<span>
+									<i class="ti ti-align-box-top-left"></i>
+								</span>
+								<span class="hide-menu">HISTORY PEMERIKSAAN</span>
+							</a>
+						</li>
 
 						<li class="nav-small-cap">
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>

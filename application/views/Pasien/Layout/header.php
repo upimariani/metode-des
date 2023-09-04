@@ -46,27 +46,13 @@ https://templatemo.com/tm-581-kind-heart-charity
 						</a>
 					</p>
 				</div>
-
 				<div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
 					<ul class="social-icon">
 						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-twitter"></a>
+							<a href="https://www.facebook.com/uptdpuskesmas.dtptalaga" class="social-icon-link bi-facebook"></a>
 						</li>
-
 						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-facebook"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-instagram"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-youtube"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-whatsapp"></a>
+							<a href="https://instagram.com/uptd_puskesmastalaga?igshid=MzRlODBiNWFlZA" class="social-icon-link bi-instagram"></a>
 						</li>
 					</ul>
 				</div>

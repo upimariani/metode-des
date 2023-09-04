@@ -33,13 +33,13 @@
 										<h6 class="fw-semibold mb-0">Tahun Prediksi</h6>
 									</th>
 									<th class="border-bottom-0">
-										<h6 class="fw-semibold mb-0">st</h6>
+										<h6 class="fw-semibold mb-0">Nilai Pemulusan (st)</h6>
 									</th>
 									<th class="border-bottom-0">
-										<h6 class="fw-semibold mb-0">bt</h6>
+										<h6 class="fw-semibold mb-0">Nilai Trend (bt)</h6>
 									</th>
 									<th class="border-bottom-0">
-										<h6 class="fw-semibold mb-0">Forecast</h6>
+										<h6 class="fw-semibold mb-0">Hasil Peramalan <br>(Forecast)</h6>
 									</th>
 
 								</tr>

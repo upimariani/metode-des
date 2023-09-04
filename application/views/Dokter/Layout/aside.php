@@ -43,15 +43,31 @@
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
 							<span class="hide-menu">PEMERIKSAAN</span>
 						</li>
+						<?php
+						$notifikasi = $this->db->query("SELECT COUNT(id_boking) as notif FROM `boking_jdwl` JOIN jdwl_dokter ON jdwl_dokter.id_jadwal=boking_jdwl.id_jadwal JOIN dokter ON jdwl_dokter.id_dokter=dokter.id_dokter WHERE stat_boking='1' AND dokter.id_dokter='" . $this->session->userdata('id_dokter') . "'")->row();
+
+						?>
 						<li class="sidebar-item">
 							<a class="sidebar-link" href="<?= base_url('Dokter/cPemeriksaan') ?>" aria-expanded="false">
 								<span>
 									<i class="ti ti-user"></i>
 								</span>
-								<span class="hide-menu">PEMERIKSAAN PASIEN</span>
+								<span class="hide-menu">PEMERIKSAAN PASIEN</span><?php if ($notifikasi->notif != '0') {
+																					?>
+									<span class="badge bg-warning"><?= $notifikasi->notif ?></span>
+								<?php
+																					} ?>
 							</a>
 						</li>
+						<li class="sidebar-item">
+							<a class="sidebar-link" href="<?= base_url('Dokter/cPemeriksaanSelesai') ?>" aria-expanded="false">
+								<span>
+									<i class="ti ti-users"></i>
+								</span>
+								<span class="hide-menu">PEMERIKSAAN SELESAI</span>
 
+							</a>
+						</li>
 
 						<li class="nav-small-cap">
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>

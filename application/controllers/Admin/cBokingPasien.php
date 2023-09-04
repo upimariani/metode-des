@@ -8,12 +8,14 @@ class cBokingPasien extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mBoking');
+		$this->load->model('mDokter');
 	}
 
 	public function index()
 	{
 		$data = array(
-			'boking' => $this->mBoking->select()
+			'boking' => $this->mBoking->select(),
+			'dokter' => $this->mDokter->select()
 		);
 		$this->load->view('Admin/Layout/aside');
 		$this->load->view('Admin/Layout/header');

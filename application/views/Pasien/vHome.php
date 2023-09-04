@@ -8,7 +8,7 @@
 					<div id="hero-slide" class="carousel carousel-fade slide" data-bs-ride="carousel">
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<img src="<?= base_url('asset/pasien/') ?>images/slide/volunteer-helping-with-donation-box.jpg" class="carousel-image img-fluid" alt="...">
+								<img src="<?= base_url('asset/foto-puskes.jpg') ?>" class="carousel-image img-fluid" alt="...">
 
 								<div class="carousel-caption d-flex flex-column justify-content-end">
 									<h2>PUSKESMAS<br> DTP TALAGA</h2>
@@ -18,7 +18,7 @@
 							</div>
 
 							<div class="carousel-item">
-								<img src="<?= base_url('asset/pasien/') ?>images/slide/volunteer-selecting-organizing-clothes-donations-charity.jpg" class="carousel-image img-fluid" alt="...">
+								<img src="<?= base_url('asset/foto-puskes.jpg') ?>" class="carousel-image img-fluid" alt="...">
 
 								<div class="carousel-caption d-flex flex-column justify-content-end">
 									<h2>PUSKESMAS<br> DTP TALAGA</h2>
@@ -28,7 +28,7 @@
 							</div>
 
 							<div class="carousel-item">
-								<img src="<?= base_url('asset/pasien/') ?>images/slide/medium-shot-people-collecting-donations.jpg" class="carousel-image img-fluid" alt="...">
+								<img src="<?= base_url('asset/foto-puskes.jpg') ?>" class="carousel-image img-fluid" alt="...">
 
 								<div class="carousel-caption d-flex flex-column justify-content-end">
 									<h2>PUSKESMAS<br> DTP TALAGA</h2>
@@ -108,18 +108,60 @@
 	</section>
 
 
-
-
-
-	<section class="cta-section section-padding section-bg">
+	<section class="section-padding section-bg" id="section_2">
 		<div class="container">
-			<div class="row justify-content-center align-items-center">
-				<div class="col-lg-5 col-12 ms-auto">
-					<h2 class="mb-0">Selamat Datang <br> Puskesmas DTP Talaga.</h2>
+			<div class="row">
+
+				<div class="col-lg-6 col-12 mb-5 mb-lg-0">
+					<img src="<?= base_url('asset/pasien/') ?>images/group-people-volunteering-foodbank-poor-people.jpg" class="custom-text-box-image img-fluid" alt="">
 				</div>
+
+				<div class="col-lg-6 col-12">
+					<div class="custom-text-box">
+						<h2 class="mb-2">Puskesmas DTP Talaga</h2>
+
+						<h5 class="mb-3">SK Kepala Puskesmas Nomor : 445.4/003/Pkm.Tlg/I/2019</h5>
+
+						<p class="mb-0">Mewujudkan Keluarga Sehat Menuju Kecamatan Talaga "RAHARJA" 2023</p>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-12 col-md-6 col-12">
+							<div class="custom-text-box mb-lg-0">
+								<h5 class="mb-3">Misi</h5>
+
+								<ul class="custom-list mt-2">
+									<li class="custom-list-item d-flex">
+										<i class="bi-check custom-text-box-icon me-2"></i>
+										Melaksanakan pelayanan kesehatan yang komprehensif
+									</li>
+
+									<li class="custom-list-item d-flex">
+										<i class="bi-check custom-text-box-icon me-2"></i>
+										Memberdayakan masyarakat dan keluarga dalam pembangunan kesehatan
+									</li>
+									<li class="custom-list-item d-flex">
+										<i class="bi-check custom-text-box-icon me-2"></i>
+										Mewujudkan pencapaian Standar Pelayanan Minimal (SPM) Kabupaten / Kotamadya
+									</li>
+									<li class="custom-list-item d-flex">
+										<i class="bi-check custom-text-box-icon me-2"></i>
+										Melaksanakan penyelenggaraan UKM dan UKP yang bermutu dalam rangka memperkuat fungsi Pusat Kesehatan Masyarakat (PUSKESMAS)
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</section>
+
+
+
+
 
 	<?php
 	if ($this->session->userdata('id_pasien') != '') {
@@ -167,7 +209,11 @@
 
 										No Antrian. <strong> 00<?= $value->no_antrian ?></strong>
 									</p>
+									<p class="d-flex mb-2">
+										<i class="bi-calendar me-2"></i>
 
+										Tanggal Kunjungan. <strong><?= $value->tgl_periksa ?></strong>
+									</p>
 									<p class="d-flex">
 										<i class="bi-info me-2"></i>
 										<?php
@@ -182,6 +228,52 @@
 										}
 										?>
 									</p>
+									<?php
+									$history = $this->db->query("SELECT * FROM `diagnosa_dokter` JOIN penyakit ON diagnosa_dokter.id_penyakit=penyakit.id_penyakit  WHERE id_boking='" . $value->id_boking . "'")->row();
+									if ($history) {
+									?>
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+											History Pemeriksaan
+										</button>
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalLabel">History Pemeriksaan Dokter</h5>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													</div>
+													<div class="modal-body">
+														<table class="table">
+															<tr>
+																<th>Nama Penyakit :</th>
+																<td><?= $history->nama_penyakit ?></td>
+															</tr>
+															<tr>
+																<th>Detail Penyakit :</th>
+																<td><?= $history->detail_penyakit ?></td>
+															</tr>
+															<tr>
+																<th>Saran :</th>
+																<td><?= $history->saran ?></td>
+															</tr>
+															<tr>
+																<th>Resep Dokter:</th>
+																<td><?= $history->resep_dokter ?></td>
+															</tr>
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+														<button type="button" class="btn btn-primary">Save changes</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php
+									}
+									?>
+
 								</div>
 								<hr>
 							<?php
