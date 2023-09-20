@@ -7,11 +7,12 @@ class mAnalisis extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('analisis_des');
+		$this->db->where('id_penyakit', $this->session->userdata('id_penyakit'));
 		return $this->db->get()->result();
 	}
 	public function prediksi_sebelumnya()
 	{
-		return $this->db->query("SELECT * FROM `analisis_des` ORDER BY id_analisis DESC LIMIT 2;")->result();
+		return $this->db->query("SELECT * FROM `analisis_des` ORDER BY id_analisis DESC LIMIT 1;")->result();
 	}
 	public function insert_rekam_medis($data)
 	{
@@ -21,10 +22,12 @@ class mAnalisis extends CI_Model
 	{
 		$this->db->insert('analisis_des', $data);
 	}
-	public function update_data($id, $data)
+
+
+	//perhitungan otomatis
+	public function jml_pengidap($id_penyakit)
 	{
-		$this->db->where('id_analisis', $id);
-		$this->db->update('analisis_des', $data);
+		return $this->db->query("SELECT COUNT(id_pasien) as jml_pengidap, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking WHERE id_penyakit='" . $id_penyakit . "' GROUP BY YEAR(tgl_periksa)")->result();
 	}
 }
 

@@ -190,6 +190,7 @@
 								<div class="d-flex flex-column justify-content-center ms-3">
 									<p class="mb-0">Pasien Atas Nama</p>
 									<p class="mb-0"><strong><?= $this->session->userdata('nama') ?></strong></p>
+									<small class="badge bg-danger mb-0">Catatan: Pasien wajib datang 15 menit sebelum jadwal pemeriksaan</small>
 								</div>
 							</div>
 

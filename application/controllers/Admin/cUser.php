@@ -8,6 +8,7 @@ class cUser extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mUser');
+		$this->load->model('mPenyakit');
 	}
 
 	public function index()
@@ -31,12 +32,16 @@ class cUser extends CI_Controller
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
+			$data = array(
+				'penyakit' => $this->mPenyakit->select()
+			);
 			$this->load->view('Admin/Layout/aside');
 			$this->load->view('Admin/Layout/header');
-			$this->load->view('Admin/User/vCreateUser');
+			$this->load->view('Admin/User/vCreateUser', $data);
 			$this->load->view('Admin/Layout/footer');
 		} else {
 			$data = array(
+				'id_penyakit' => $this->input->post('rekam'),
 				'nama_user' => $this->input->post('nama'),
 				'alamat' => $this->input->post('alamat'),
 				'no_telp' => $this->input->post('no_hp'),
@@ -62,7 +67,8 @@ class cUser extends CI_Controller
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
-				'user' => $this->mUser->get_data($id)
+				'user' => $this->mUser->get_data($id),
+				'penyakit' => $this->mPenyakit->select()
 			);
 			$this->load->view('Admin/Layout/aside');
 			$this->load->view('Admin/Layout/header');
@@ -70,6 +76,7 @@ class cUser extends CI_Controller
 			$this->load->view('Admin/Layout/footer');
 		} else {
 			$data = array(
+				'id_penyakit' => $this->input->post('rekam'),
 				'nama_user' => $this->input->post('nama'),
 				'alamat' => $this->input->post('alamat'),
 				'no_telp' => $this->input->post('no_hp'),

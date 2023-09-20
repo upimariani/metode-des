@@ -9,10 +9,29 @@
 <script src="<?= base_url('asset/admin/src/') ?>assets/js/sidebarmenu.js"></script>
 <script src="<?= base_url('asset/admin/src/') ?>assets/js/app.min.js"></script>
 <script src="<?= base_url('asset/admin/src/') ?>assets/libs/simplebar/dist/simplebar.js"></script>
+<script src="<?= base_url('asset/datatables') ?>/datatables.min.js"></script>
+<script>
+	console.log = function() {}
+	$("#pengidap").on('change', function() {
+
+		$(".pengidap").html($(this).find(':selected').attr('data-pengidap'));
+		$(".pengidap").val($(this).find(':selected').attr('data-pengidap'));
+
+		$(".tahun").html($(this).find(':selected').attr('data-tahun'));
+		$(".tahun").val($(this).find(':selected').attr('data-tahun'));
+
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		$('#myTable').DataTable();
+	});
+</script>
 <script src="<?= base_url('asset/chart/js_chart.js') ?>"></script>
 <script>
 	<?php
-	$data_analisis = $this->db->query("SELECT * FROM `analisis_des`")->result();
+	$id_penyakit = $this->session->userdata('id_penyakit');
+	$data_analisis = $this->db->query("SELECT * FROM `analisis_des` WHERE id_penyakit= $id_penyakit")->result();
 	foreach ($data_analisis as $key => $value) {
 		$forecast[] = $value->forecast;
 		$thn[] = $value->thn_prediksi;
@@ -21,13 +40,12 @@
 	?>
 	var ctx = document.getElementById('analisis');
 	var grafik = new Chart(ctx, {
-		type: 'line',
+		type: 'bar',
 		data: {
 			labels: <?= json_encode($thn) ?>,
 			datasets: [{
 				label: 'Grafik Forecast Penyakit',
 				data: <?= json_encode($forecast) ?>,
-
 				backgroundColor: [
 					'rgba(201, 76, 76, 0.3)',
 					'rgba(201, 77, 77, 1)',

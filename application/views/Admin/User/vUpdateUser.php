@@ -66,7 +66,23 @@
 								</select>
 								<?= form_error('level', '<small class="text-danger">', '</small>') ?>
 							</div>
-
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Rekam Medis Penyakit</label>
+								<select name="rekam" class="form-control">
+									<option value="">---Pilih Analisis Penyakit---</option>
+									<option value="0">Admin</option>
+									<?php
+									foreach ($penyakit as $key => $value) {
+									?>
+										<option value="<?= $value->id_penyakit ?>" <?php if ($value->id_penyakit == $user->id_penyakit) {
+																						echo 'selected';
+																					} ?>><?= $value->nama_penyakit ?></option>
+									<?php
+									}
+									?>
+								</select>
+								<?= form_error('rekam', '<small class="text-danger">', '</small>') ?>
+							</div>
 							<div class="mb-3">
 								<button type="submit" class="btn btn-success px-5"><i class="icon-lock"></i> Save</button>
 							</div>

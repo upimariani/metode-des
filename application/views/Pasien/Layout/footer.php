@@ -9,33 +9,10 @@
 					<p class="copyright-text mb-0">PUSKESMAS DTP TALAGA
 					</p>
 				</div>
-
-				<div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
-					<ul class="social-icon">
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-twitter"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-facebook"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-instagram"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="#" class="social-icon-link bi-linkedin"></a>
-						</li>
-
-						<li class="social-icon-item">
-							<a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
-						</li>
-					</ul>
-				</div>
-
 			</div>
+
 		</div>
+	</div>
 	</div>
 </footer>
 

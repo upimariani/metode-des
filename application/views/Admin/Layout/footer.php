@@ -10,6 +10,13 @@
 <script src="<?= base_url('asset/admin/src/') ?>assets/js/app.min.js"></script>
 <script src="<?= base_url('asset/admin/src/') ?>assets/libs/simplebar/dist/simplebar.js"></script>
 <script src="<?= base_url('asset/chart/js_chart.js') ?>"></script>
+<script src="<?= base_url('asset/datatables') ?>/datatables.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('.myTable').DataTable();
+	});
+</script>
 <script>
 	<?php
 	$data_analisis = $this->db->query("SELECT * FROM `analisis_des`")->result();
@@ -120,6 +127,7 @@
 		}
 	});
 </script>
+
 </body>
 
 </html>

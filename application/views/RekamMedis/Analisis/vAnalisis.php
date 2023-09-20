@@ -23,7 +23,7 @@
 					}
 					?>
 					<div class="table-responsive">
-						<table class="table text-nowrap mb-0 align-middle">
+						<table id="myTable" class="table text-nowrap mb-0 align-middle">
 							<thead class="text-dark fs-4">
 								<tr>
 									<th class="border-bottom-0">
@@ -92,16 +92,35 @@
 				<form action="<?= base_url('RekamMedis/cAnalisis/hitung') ?>" method="POST">
 					<div class="modal-body">
 						<div class="mb-3">
+							<input type="hidden" name="tahun" class="tahun">
 							<label for="exampleInputEmail1" class="form-label">Tahun</label>
-							<input class="form-control" type="text" value="<?= $thn_prediksi ?>" name="tahun">
+							<select id="pengidap" name="penyakit" class="form-control">
+								<option>---Pilih Tahun Prediksi---</option>
+								<?php
+								$urutan = '1';
+								foreach ($periode as $key => $value) {
+									//cek analisis
+									$data = $this->db->query("SELECT * FROM `analisis_des` WHERE thn_prediksi='" . $value->tahun . "' AND id_penyakit ='" . $value->id_penyakit . "'")->row();
+									if (!$data) {
+										if ($urutan++ == '1') {
+								?>
+											<option data-tahun="<?= $value->tahun ?>" data-pengidap="<?= $value->jml_pengidap ?>" value="<?= $value->id_penyakit ?>"><?= $value->tahun ?></option>
+
+										<?php
+										} else {
+										?>
+											<option data-tahun="<?= $value->tahun ?>" data-pengidap="<?= $value->jml_pengidap ?>" value="<?= $value->id_penyakit ?>" disabled><?= $value->tahun ?></option>
+								<?php
+										}
+									}
+								}
+								?>
+							</select>
 						</div>
+
 						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Tahun Berikutnya</label>
-							<input type="text" class="form-control" name="tahun_berikutnya">
-						</div>
-						<div class="mb-3">
-							<label for="exampleInputEmail1" class="form-label">Jumlah Fakta Pengidap Pada Tahun <?= $thn_prediksi ?></label>
-							<input class="form-control" type="text" name="jml_pengidap">
+							<label for="exampleInputEmail1" class="form-label">Jumlah Fakta Pengidap Pada Tahun <span class="tahun"></span></label>
+							<input class="pengidap form-control" type="text" name="jml_pengidap">
 						</div>
 					</div>
 					<div class="modal-footer">

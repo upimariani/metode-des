@@ -23,7 +23,26 @@
 							</div>
 							<div class="col-lg-6 col-12 mt-2">
 								<label>Alamat</label>
-								<input type="text" name="alamat" class="form-control" placeholder="masukkan alamat">
+								<select name="alamat" class="form-control">
+									<option value="">---Pilih Alamat Desa---</option>
+									<option value="Argasari">Argasari</option>
+									<option value="Campaga">Campaga</option>
+									<option value="Cibeureum">Cibeureum</option>
+									<option value="Cicanir">Cicanir</option>
+									<option value="Cikeusal">Cikeusal</option>
+									<option value="Ganeas">Ganeas</option>
+									<option value="Gunung Manik">Gunung Manik</option>
+									<option value="Jatipamor">Jatipamor</option>
+									<option value="Ketrahayu">Ketrahayu</option>
+									<option value="Lampuyang">Lampuyang</option>
+									<option value="Margamukti">Margamukti</option>
+									<option value="Mekarhurip">Mekarhurip</option>
+									<option value="Mekarraharja">Mekarraharja</option>
+									<option value="Salado">Salado</option>
+									<option value="Sukaperna">Sukaperna</option>
+									<option value="Talagakulon">Talagakulon</option>
+									<option value="Talagawetan">Talagawetan</option>
+								</select>
 								<?= form_error('alamat', '<small class="text-danger">', '</small>') ?>
 							</div>
 							<div class="col-lg-6 col-12 mt-2">

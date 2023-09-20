@@ -10,17 +10,10 @@ class cAnalisis extends CI_Controller
 	}
 	public function index()
 	{
-		//cek prediksi terakhir
-		$prediksi_sebelumnya = $this->mAnalisis->prediksi_sebelumnya();
-		foreach ($prediksi_sebelumnya as $key => $value) {
-			if ($value->st == '0') {
-				$data = array(
-					'prediksi' => $value->forecast,
-					'thn_prediksi' => $value->thn_prediksi,
-					'analisis' => $this->mAnalisis->select()
-				);
-			}
-		}
+		$data = array(
+			'periode' => $this->mAnalisis->jml_pengidap($this->session->userdata('id_penyakit')),
+			'analisis' => $this->mAnalisis->select()
+		);
 		$this->load->view('RekamMedis/Layout/aside');
 		$this->load->view('RekamMedis/Layout/header');
 		$this->load->view('RekamMedis/Analisis/vAnalisis', $data);
@@ -29,55 +22,44 @@ class cAnalisis extends CI_Controller
 	public function hitung()
 	{
 		$tahun = $this->input->post('tahun');
-		$tahun_berikutnya = $this->input->post('tahun_berikutnya');
 		$total = $this->input->post('jml_pengidap');
 
 		//cek prediksi terakhir
 		$prediksi_sebelumnya = $this->mAnalisis->prediksi_sebelumnya();
 		foreach ($prediksi_sebelumnya as $key => $value) {
-			if ($value->st != '0') {
-				$sts = $value->st;
-				$bts = $value->bt;
-				$t = $value->t + 2;
-			} else {
-				$id_analisis = $value->id_analisis;
-			}
+			$st_sebelumnya = $value->st;
+			$bt_sebelumnya = $value->bt;
 		}
 
+		//menghitung st, bt, dan forecast tahun setelahnya
+		$st = round((0.9 * $total) + (1 - 0.9) * ($st_sebelumnya + $bt_sebelumnya), 1);
+		$bt = round((0.2 * ($st - $bt_sebelumnya)) + ((1 - 0.2) * $bt_sebelumnya), 1);
 
+		//menghitung forecast
+		$forecast = $st_sebelumnya + $bt_sebelumnya;
 
-		//data rekam medis fakta
+		//menyimpan data di tabel rekam_medis
 		$data_rekam_medis = array(
-			'id_penyakit' => '1',
+			'id_penyakit' => $this->input->post('penyakit'),
 			'thn_periode' => $tahun,
 			'jml_pengidap' => $total
 		);
 		$this->mAnalisis->insert_rekam_medis($data_rekam_medis);
 
 
-		//menghitung st, bt, dan forecast tahun setelahnya
-		$st = round((0.9 * $total) + (1 - 0.9) * ($sts + $bts), 1);
-		$bt = round((0.2 * ($st - $bts)) + ((1 - 0.2) * $bts), 1);
-		//data update perhitungan st, bt
-		$data_update = array(
+		$id_rekam_medis = $this->db->query("SELECT MAX(id_rekam_medis) as id FROM `rekam_medis`")->row();
+		$nilai_t = $this->db->query("SELECT MAX(id_analisis) as id, t+1 as t FROM `analisis_des`")->row();
+		$data_analisis = array(
+			'id_rekam_medis' => $id_rekam_medis->id,
+			'id_penyakit' => $this->input->post('penyakit'),
+			'thn_prediksi' => $tahun,
+			't' => $nilai_t->t,
 			'st' => $st,
 			'bt' => $bt,
-			'id_rekam_medis' => $id_analisis
+			'forecast' => $forecast
 		);
-		$this->mAnalisis->update_data($id_analisis, $data_update);
-
-
-		//data analisis metode des prediksi tahun berikutnya
-		$ftm = $st + ($bt * 1);
-		$data_analisis_berikutnya = array(
-			'thn_prediksi' => $tahun_berikutnya,
-			't' => $t,
-			'st' => '0',
-			'bt' => '0',
-			'forecast' => $ftm
-		);
-		$this->mAnalisis->insert_analisis($data_analisis_berikutnya);
-
+		$this->mAnalisis->insert_analisis($data_analisis);
+		$this->session->set_flashdata('success', 'Analisis Berhasil Disimpan!');
 		redirect('RekamMedis/cAnalisis');
 	}
 }

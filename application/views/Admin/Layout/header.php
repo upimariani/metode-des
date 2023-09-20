@@ -10,13 +10,15 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link nav-icon-hover" href="javascript:void(0)">
+					<a class="nav-link nav-icon-hover" href="<?= base_url('Admin/cBokingPasien') ?>">
 						<i class="ti ti-bell-ringing"></i>
-						<div class="notification bg-primary rounded-circle"></div>
+						<?php
+						$notif = $this->db->query("SELECT COUNT(id_boking) as notif FROM `boking_jdwl` WHERE stat_boking !='2'")->row();
+						?>
+						<span class="badge bg-info"><?= $notif->notif ?></span>
 					</a>
 				</li>
 			</ul>
-
 		</nav>
 	</header>
 	<!--  Header End -->
