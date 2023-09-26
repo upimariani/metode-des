@@ -21,7 +21,7 @@
 			<div>
 				<div class="brand-logo d-flex align-items-center justify-content-between">
 					<a href="./index.html" class="text-nowrap logo-img">
-						<img src="<?= base_url('asset/admin/src/') ?>assets/images/logos/dark-logo.svg" width="180" alt="" />
+						<img src="<?= base_url('asset/logo.jpg') ?>" width="200" alt="" />
 					</a>
 					<div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
 						<i class="ti ti-x fs-8"></i>
@@ -30,6 +30,11 @@
 				<!-- Sidebar navigation-->
 				<nav class="sidebar-nav scroll-sidebar" data-simplebar="">
 					<ul id="sidebarnav">
+						<li class="nav-small-cap">
+							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+							<img src="<?= base_url('asset/admin/src/') ?>assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle"><span class="hide-menu"> <strong><?= $this->session->userdata('nama_user') ?></strong></span>
+							<hr>
+						</li>
 						<li class="nav-small-cap">
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
 							<span class="hide-menu">Home</span>
@@ -55,9 +60,21 @@
 							</a>
 						</li>
 						<li class="sidebar-item">
+							<a class="sidebar-link" href="<?= base_url('RekamMedis/cAnalisisPerDesa') ?>" aria-expanded="false">
+								<span>
+									<i class="ti ti-archive"></i>
+								</span>
+								<span class="hide-menu">ANALISIS PER DESA</span>
+							</a>
+						</li>
+						<li class="nav-small-cap">
+							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+							<span class="hide-menu">HISTORY PASIEN</span>
+						</li>
+						<li class="sidebar-item">
 							<a class="sidebar-link" href="<?= base_url('RekamMedis/cHistory') ?>" aria-expanded="false">
 								<span>
-									<i class="ti ti-align-box-top-left"></i>
+									<i class="ti ti-air-balloon"></i>
 								</span>
 								<span class="hide-menu">HISTORY PEMERIKSAAN</span>
 							</a>

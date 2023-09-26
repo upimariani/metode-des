@@ -10,9 +10,9 @@ class mAnalisis extends CI_Model
 		$this->db->where('id_penyakit', $this->session->userdata('id_penyakit'));
 		return $this->db->get()->result();
 	}
-	public function prediksi_sebelumnya()
+	public function prediksi_sebelumnya($id_penyakit)
 	{
-		return $this->db->query("SELECT * FROM `analisis_des` ORDER BY id_analisis DESC LIMIT 1;")->result();
+		return $this->db->query("SELECT * FROM `analisis_des` ORDER BY id_analisis WHERE id_penyakit='" . $id_penyakit . "' DESC LIMIT 1;")->result();
 	}
 	public function insert_rekam_medis($data)
 	{
@@ -23,11 +23,35 @@ class mAnalisis extends CI_Model
 		$this->db->insert('analisis_des', $data);
 	}
 
-
-	//perhitungan otomatis
 	public function jml_pengidap($id_penyakit)
 	{
 		return $this->db->query("SELECT COUNT(id_pasien) as jml_pengidap, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking WHERE id_penyakit='" . $id_penyakit . "' GROUP BY YEAR(tgl_periksa)")->result();
+	}
+
+	//analisis per desa-------------------
+	public function alamat()
+	{
+		return $this->db->query("SELECT * FROM `pasien` GROUP BY alamat ORDER BY alamat ASC")->result();
+	}
+	public function analisis_desa($alamat, $id_penyakit)
+	{
+		$this->db->select('*');
+		$this->db->from('analisis_perdesa');
+		$this->db->where('nama_desa', $alamat);
+		$this->db->where('id_penyakit', $id_penyakit);
+		return $this->db->get()->result();
+	}
+	public function periode_perdesa($id_penyakit, $alamat)
+	{
+		return $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $id_penyakit . "' AND alamat='" . $alamat . "' GROUP BY  alamat, YEAR(tgl_periksa)")->result();
+	}
+	public function analisis_perdesa_sebelumnya($id_penyakit, $alamat)
+	{
+		return $this->db->query("SELECT * FROM `analisis_perdesa` WHERE id_penyakit='" . $id_penyakit . "' AND nama_desa='" . $alamat . "' ORDER BY thn_periode DESC LIMIT 1")->row();
+	}
+	public function insert_analisisperdesa($data)
+	{
+		$this->db->insert('analisis_perdesa', $data);
 	}
 }
 

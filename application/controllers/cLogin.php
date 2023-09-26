@@ -27,9 +27,11 @@ class cLogin extends CI_Controller
 					$id = $data->id_user;
 					$level = $data->level_user;
 					$id_penyakit = $data->id_penyakit;
+					$nama_user = $data->nama_user;
 					$this->session->set_userdata('id', $id);
 					$this->session->set_userdata('level', $level);
 					$this->session->set_userdata('id_penyakit', $id_penyakit);
+					$this->session->set_userdata('nama_user', $nama_user);
 
 					if ($data->level_user == '1') {
 						$this->session->set_flashdata('success', 'Selamat Datang Admin!');
@@ -64,6 +66,7 @@ class cLogin extends CI_Controller
 		$this->session->unset_userdata('level');
 		$this->session->unset_userdata('id_dokter');
 		$this->session->unset_userdata('id_penyakit');
+		$this->session->unset_userdata('nama_user');
 		$this->session->set_flashdata('success', 'Anda Berhasil Logout!');
 		redirect('cLogin');
 	}

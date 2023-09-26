@@ -25,7 +25,8 @@ class cAnalisis extends CI_Controller
 		$total = $this->input->post('jml_pengidap');
 
 		//cek prediksi terakhir
-		$prediksi_sebelumnya = $this->mAnalisis->prediksi_sebelumnya();
+		$id_penyakit = $this->input->post('penyakit');
+		$prediksi_sebelumnya = $this->mAnalisis->prediksi_sebelumnya($id_penyakit);
 		foreach ($prediksi_sebelumnya as $key => $value) {
 			$st_sebelumnya = $value->st;
 			$bt_sebelumnya = $value->bt;

@@ -18,9 +18,8 @@
 						<div class="card mb-0">
 							<div class="card-body">
 								<a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-									<img src="<?= base_url('asset/admin/src/') ?>assets/images/logos/dark-logo.svg" width="180" alt="">
+									<img src="<?= base_url('asset/logo.jpg') ?>" width="280" alt="">
 								</a>
-								<p class="text-center">PUSKESMAS DTP TALAGA</p>
 								<?php
 								if ($this->session->userdata('success')) {
 								?>

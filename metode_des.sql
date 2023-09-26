@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2023 at 02:03 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Waktu pembuatan: 26 Sep 2023 pada 16.22
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `analisis_des`
+-- Struktur dari tabel `analisis_des`
 --
 
 CREATE TABLE `analisis_des` (
@@ -40,7 +40,7 @@ CREATE TABLE `analisis_des` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `analisis_des`
+-- Dumping data untuk tabel `analisis_des`
 --
 
 INSERT INTO `analisis_des` (`id_analisis`, `id_rekam_medis`, `id_penyakit`, `thn_prediksi`, `t`, `st`, `bt`, `forecast`) VALUES
@@ -55,7 +55,139 @@ INSERT INTO `analisis_des` (`id_analisis`, `id_rekam_medis`, `id_penyakit`, `thn
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boking_jdwl`
+-- Struktur dari tabel `analisis_perdesa`
+--
+
+CREATE TABLE `analisis_perdesa` (
+  `id_analisis_perdesa` int(11) NOT NULL,
+  `id_penyakit` int(11) NOT NULL,
+  `nama_desa` varchar(30) NOT NULL,
+  `thn_periode` int(11) NOT NULL,
+  `t` int(11) NOT NULL,
+  `st` double NOT NULL,
+  `bt` double NOT NULL,
+  `forecast` double NOT NULL,
+  `jml_pengidap` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `analisis_perdesa`
+--
+
+INSERT INTO `analisis_perdesa` (`id_analisis_perdesa`, `id_penyakit`, `nama_desa`, `thn_periode`, `t`, `st`, `bt`, `forecast`, `jml_pengidap`) VALUES
+(1, 1, 'Argasari', 2018, 1, 14, -5.5, 0, 14),
+(2, 1, 'Campaga', 2018, 1, 9, -3.5, 0, 9),
+(3, 1, 'Cibeureum', 2018, 1, 4, -0.5, 0, 4),
+(4, 1, 'Cicanir', 2018, 1, 13, -6, 0, 13),
+(5, 1, 'Cikeusal', 2018, 1, 20, -8.5, 0, 20),
+(6, 1, 'Ganeas', 2018, 1, 8, -3, 0, 8),
+(7, 1, 'Gunungmanik', 2018, 1, 14, -5.5, 0, 14),
+(8, 1, 'Jatipamor', 2018, 1, 31, -18, 0, 31),
+(9, 1, 'Ketrahayu', 2018, 1, 4, -1.5, 0, 4),
+(10, 1, 'Lampuyang', 2018, 1, 5, -1, 0, 5),
+(11, 1, 'Margamukti', 2018, 1, 11, -5, 0, 11),
+(12, 1, 'Mekarhurip', 2018, 1, 8, -4, 0, 8),
+(13, 1, 'Mekarraharja', 2018, 1, 8, -7, 0, 8),
+(14, 1, 'Salado', 2018, 1, 10, -5, 0, 10),
+(15, 1, 'Sukaperna', 2018, 1, 10, -4.5, 0, 10),
+(16, 1, 'Talagakulon', 2018, 1, 35, -20.5, 0, 35),
+(17, 1, 'Talagawetan', 2018, 1, 41, -17.5, 0, 41),
+(18, 2, 'Argasari', 2018, 1, 9, -1.5, 0, 9),
+(19, 2, 'Campaga', 2018, 1, 5, -3.5, 0, 5),
+(20, 2, 'Cibeureum', 2018, 1, 3, 0, 0, 3),
+(21, 2, 'Cicanir', 2018, 1, 6, -1.5, 0, 6),
+(22, 2, 'Cikeusal', 2018, 1, 8, -4, 0, 8),
+(23, 2, 'Ganeas', 2018, 1, 8, -1, 0, 8),
+(24, 2, 'Gunungmanik', 2018, 1, 6, -4, 0, 6),
+(25, 2, 'Jatipamor', 2018, 1, 18, -14, 0, 18),
+(26, 2, 'Ketrahayu', 2018, 1, 7, -4, 0, 7),
+(27, 2, 'Lampuyang', 2018, 1, 7, -0.5, 0, 7),
+(28, 2, 'Margamukti', 2018, 1, 7, -4.5, 0, 7),
+(29, 2, 'Mekarhurip', 2018, 1, 8, -5, 0, 8),
+(30, 2, 'Mekarraharja', 2018, 1, 9, -4, 0, 9),
+(31, 2, 'Salado', 2018, 1, 7, -4, 0, 7),
+(32, 2, 'Sukaperna', 2018, 1, 10, -4, 0, 10),
+(33, 2, 'Talagakulon', 2018, 1, 25, -16.5, 0, 25),
+(34, 2, 'Talagawetan', 2018, 1, 20, -11, 0, 20),
+(35, 3, 'Argasari', 2018, 1, 38, -58, 0, 38),
+(36, 3, 'Campaga', 2018, 1, 21, -35.5, 0, 21),
+(37, 3, 'Cibeureum', 2018, 1, 15, -45, 0, 15),
+(38, 3, 'Cicanir', 2018, 1, 22, -32.5, 0, 22),
+(39, 3, 'Cikeusal', 2018, 1, 19, -44, 0, 19),
+(40, 3, 'Ganeas', 2018, 1, 21, -27, 0, 21),
+(41, 3, 'Gunungmanik', 2018, 1, 29, -60.5, 0, 29),
+(42, 3, 'Jatipamor', 2018, 1, 35, -45, 0, 35),
+(43, 3, 'Ketrahayu', 2018, 1, 10, -11, 0, 10),
+(44, 3, 'Lampuyang', 2018, 1, 23, -31.5, 0, 23),
+(45, 3, 'Margamukti', 2018, 1, 15, -34, 0, 15),
+(46, 3, 'Mekarhurip', 2018, 1, 12, -27.5, 0, 12),
+(47, 3, 'Mekarraharja', 2018, 1, 26, -39.5, 0, 26),
+(48, 3, 'Salado', 2018, 1, 29, -38, 0, 29),
+(49, 3, 'Sukaperna', 2018, 1, 19, -11, 0, 19),
+(50, 3, 'Talagakulon', 2018, 1, 54, -13, 0, 54),
+(51, 3, 'Talagawetan', 2018, 1, 65, -11, 0, 65),
+(52, 4, 'Argasari', 2018, 1, 59, -17.5, 0, 59),
+(53, 4, 'Campaga', 2018, 1, 25, -4.5, 0, 25),
+(54, 4, 'Cibeureum', 2018, 1, 11, -5.5, 0, 11),
+(55, 4, 'Cicanir', 2018, 1, 35, -0.5, 0, 35),
+(56, 4, 'Cikeusal', 2018, 1, 32, -8.5, 0, 32),
+(57, 4, 'Ganeas', 2018, 1, 25, 5.5, 0, 25),
+(58, 4, 'Gunungmanik', 2018, 1, 56, -19, 0, 56),
+(59, 4, 'Jatipamor', 2018, 1, 60, -2, 0, 60),
+(60, 4, 'Ketrahayu', 2018, 1, 12, -1, 0, 12),
+(61, 4, 'Lampuyang', 2018, 1, 77, -31, 0, 77),
+(62, 4, 'Margamukti', 2018, 1, 88, -7, 0, 88),
+(63, 4, 'Mekarhurip', 2018, 1, 23, -6.5, 0, 23),
+(64, 4, 'Mekarraharja', 2018, 1, 36, -6, 0, 36),
+(65, 4, 'Salado', 2018, 1, 42, 1.5, 0, 42),
+(66, 4, 'Sukaperna', 2018, 1, 36, -3.5, 0, 36),
+(67, 4, 'Talagakulon', 2018, 1, 114, -27.5, 0, 114),
+(68, 4, 'Talagawetan', 2018, 1, 95, -25.5, 0, 95),
+(70, 1, 'Argasari', 2019, 2, 4.5, -2.4, 8.5, 4),
+(71, 1, 'Argasari', 2020, 2, 6.5, -0.1, 2.1, 7),
+(72, 1, 'Argasari', 2021, 2, 6, 1.1, 6.4, 6),
+(73, 1, 'Argasari', 2022, 2, 15.1, 3.7, 7.1, 16),
+(74, 1, 'Campaga', 2019, 2, 4.2, -1.3, 5.5, 4),
+(75, 1, 'Campaga', 2020, 2, 5.7, 0.4, 2.9, 6),
+(76, 1, 'Campaga', 2021, 2, 4.2, 1.1, 6.1, 4),
+(77, 1, 'Cibeureum', 2019, 2, 3.1, 0.3, 3.5, 3),
+(78, 1, 'Cibeureum', 2020, 2, 3.9, 1, 3.4, 4),
+(79, 1, 'Cibeureum', 2021, 2, 4.1, 1.4, 4.9, 4),
+(80, 1, 'Cibeureum', 2022, 2, 7.8, 2.4, 5.5, 8),
+(81, 1, 'Cicanir', 2019, 2, 2.5, -3.1, 7, 2),
+(82, 1, 'Cicanir', 2020, 2, 4.4, -1, -0.6, 5),
+(83, 1, 'Cicanir', 2021, 2, 3.9, 0.2, 3.4, 4),
+(84, 1, 'Cicanir', 2022, 2, 8.5, 1.8, 4.1, 9),
+(85, 1, 'Cikeusal', 2019, 2, 3, -4.5, 11.5, 2),
+(86, 1, 'Cikeusal', 2020, 2, 0.8, -2.5, -1.5, 1),
+(87, 1, 'Cikeusal', 2021, 2, 1.6, -1.2, -1.7, 2),
+(88, 1, 'Cikeusal', 2022, 2, 4.5, 0.2, 0.4, 5),
+(89, 1, 'Jatipamor', 2019, 2, 7.6, -9.3, 13, 7),
+(90, 1, 'Jatipamor', 2020, 2, 18.7, -1.8, -1.7, 21),
+(91, 1, 'Jatipamor', 2021, 2, 9.8, 0.9, 16.9, 9),
+(92, 1, 'Jatipamor', 2022, 2, 18.2, 4.2, 10.7, 19),
+(93, 1, 'Ganeas', 2019, 2, 5.9, -0.6, 5, 6),
+(94, 1, 'Ganeas', 2020, 2, 5.9, 0.8, 5.3, 6),
+(95, 1, 'Ganeas', 2021, 2, 2.5, 1, 6.7, 2),
+(96, 1, 'Ganeas', 2022, 2, 9.4, 2.5, 3.5, 10),
+(97, 1, 'Gunungmanik', 2019, 2, 8.1, -1.7, 8.5, 8),
+(98, 1, 'Gunungmanik', 2020, 2, 6.9, 0.4, 6.4, 7),
+(99, 1, 'Gunungmanik', 2021, 2, 2.5, 0.7, 7.3, 2),
+(100, 1, 'Gunungmanik', 2022, 2, 5.7, 1.6, 3.2, 6),
+(101, 1, 'Ketrahayu', 2019, 2, 1.2, -0.7, 2.5, 1),
+(102, 1, 'Ketrahayu', 2020, 2, 1, -0.2, 0.5, 1),
+(103, 1, 'Ketrahayu', 2021, 2, 1, 0.1, 0.8, 1),
+(104, 1, 'Ketrahayu', 2022, 2, 3.7, 0.8, 1.1, 4),
+(105, 1, 'Lampuyang', 2019, 2, 4.9, 0.4, 4, 5),
+(106, 1, 'Lampuyang', 2020, 2, 6.8, 1.6, 5.3, 7),
+(107, 1, 'Lampuyang', 2021, 2, 5.3, 2, 8.4, 5),
+(108, 1, 'Lampuyang', 2022, 2, 12.4, 3.7, 7.3, 13),
+(109, 2, 'Argasari', 2019, 2, 5.3, 0.2, 7.5, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `boking_jdwl`
 --
 
 CREATE TABLE `boking_jdwl` (
@@ -70,7 +202,7 @@ CREATE TABLE `boking_jdwl` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `boking_jdwl`
+-- Dumping data untuk tabel `boking_jdwl`
 --
 
 INSERT INTO `boking_jdwl` (`id_boking`, `id_pasien`, `id_jadwal`, `tgl_boking`, `tgl_periksa`, `no_antrian`, `keluhan_pasien`, `stat_boking`) VALUES
@@ -6600,7 +6732,7 @@ INSERT INTO `boking_jdwl` (`id_boking`, `id_pasien`, `id_jadwal`, `tgl_boking`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diagnosa_dokter`
+-- Struktur dari tabel `diagnosa_dokter`
 --
 
 CREATE TABLE `diagnosa_dokter` (
@@ -6613,7 +6745,7 @@ CREATE TABLE `diagnosa_dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `diagnosa_dokter`
+-- Dumping data untuk tabel `diagnosa_dokter`
 --
 
 INSERT INTO `diagnosa_dokter` (`id_diagnosa`, `id_penyakit`, `id_boking`, `detail_penyakit`, `saran`, `resep_dokter`) VALUES
@@ -13147,7 +13279,7 @@ INSERT INTO `diagnosa_dokter` (`id_diagnosa`, `id_penyakit`, `id_boking`, `detai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dokter`
+-- Struktur dari tabel `dokter`
 --
 
 CREATE TABLE `dokter` (
@@ -13163,7 +13295,7 @@ CREATE TABLE `dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `dokter`
+-- Dumping data untuk tabel `dokter`
 --
 
 INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `ahli_dokter`, `jk`, `foto`, `alamat`, `no_telp`, `username`, `password`) VALUES
@@ -13174,7 +13306,7 @@ INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `ahli_dokter`, `jk`, `foto`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jdwl_dokter`
+-- Struktur dari tabel `jdwl_dokter`
 --
 
 CREATE TABLE `jdwl_dokter` (
@@ -13185,7 +13317,7 @@ CREATE TABLE `jdwl_dokter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jdwl_dokter`
+-- Dumping data untuk tabel `jdwl_dokter`
 --
 
 INSERT INTO `jdwl_dokter` (`id_jadwal`, `id_dokter`, `hari`, `jam`) VALUES
@@ -13211,7 +13343,7 @@ INSERT INTO `jdwl_dokter` (`id_jadwal`, `id_dokter`, `hari`, `jam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pasien`
+-- Struktur dari tabel `pasien`
 --
 
 CREATE TABLE `pasien` (
@@ -13228,7 +13360,7 @@ CREATE TABLE `pasien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pasien`
+-- Dumping data untuk tabel `pasien`
 --
 
 INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `alamat`, `no_hp`, `jk`, `bb`, `tinggi`, `ttl`, `username`, `password`) VALUES
@@ -13802,7 +13934,7 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `alamat`, `no_hp`, `jk`, `bb`,
 (567, 'Erni', 'Campaga', '081328292837', 'L', 55, 160, 'Majalengka, 30 Agustus 2001', 'erni', 'erni00'),
 (568, 'Azis', 'Cibeureum', '085323849056', 'P', 37, 146, 'Majalengka, 25 Oktober 2012', 'azis', 'azis00'),
 (569, 'Dede', 'Sukaperna', '085324242456', 'L', 50, 165, 'Majalengka, 8 Februari 2008', 'dede', 'dede00'),
-(570, 'Ferdi', 'Luarwilayah', '085326387451', 'L', 66, 183, 'Majalengka, 21 Mei 2004', 'ferdi', 'ferdi00'),
+(570, 'Ferdi', 'Argasari', '085326387451', 'L', 66, 183, 'Majalengka, 21 Mei 2004', 'ferdi', 'ferdi00'),
 (571, 'Afnizar', 'Mekarhurip', '081324567891', 'P', 20, 115, 'Majalengka, 1 November 2017', 'afnizar', 'afnizar00'),
 (572, 'Syakira', 'Mekarraharja', '085327898765', 'L', 77, 187, 'Majalengka, 10 Juli 1996', 'syakira', 'syakira00'),
 (573, 'Fatimah', 'Talagakulon', '085321347891', 'P', 66, 170, 'Majalengka, 4 April 2009', 'fatimah', 'fatimah00'),
@@ -14293,7 +14425,7 @@ INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `alamat`, `no_hp`, `jk`, `bb`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `penyakit`
+-- Struktur dari tabel `penyakit`
 --
 
 CREATE TABLE `penyakit` (
@@ -14304,7 +14436,7 @@ CREATE TABLE `penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penyakit`
+-- Dumping data untuk tabel `penyakit`
 --
 
 INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`, `stat_penyakit`, `gejala`) VALUES
@@ -14316,7 +14448,7 @@ INSERT INTO `penyakit` (`id_penyakit`, `nama_penyakit`, `stat_penyakit`, `gejala
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekam_medis`
+-- Struktur dari tabel `rekam_medis`
 --
 
 CREATE TABLE `rekam_medis` (
@@ -14327,7 +14459,7 @@ CREATE TABLE `rekam_medis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rekam_medis`
+-- Dumping data untuk tabel `rekam_medis`
 --
 
 INSERT INTO `rekam_medis` (`id_rekam_medis`, `id_penyakit`, `thn_periode`, `jml_pengidap`) VALUES
@@ -14342,7 +14474,7 @@ INSERT INTO `rekam_medis` (`id_rekam_medis`, `id_penyakit`, `thn_periode`, `jml_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -14358,7 +14490,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `id_penyakit`, `nama_user`, `alamat`, `no_telp`, `jk`, `username`, `password`, `level_user`) VALUES
@@ -14373,113 +14505,125 @@ INSERT INTO `user` (`id_user`, `id_penyakit`, `nama_user`, `alamat`, `no_telp`, 
 --
 
 --
--- Indexes for table `analisis_des`
+-- Indeks untuk tabel `analisis_des`
 --
 ALTER TABLE `analisis_des`
   ADD PRIMARY KEY (`id_analisis`);
 
 --
--- Indexes for table `boking_jdwl`
+-- Indeks untuk tabel `analisis_perdesa`
+--
+ALTER TABLE `analisis_perdesa`
+  ADD PRIMARY KEY (`id_analisis_perdesa`);
+
+--
+-- Indeks untuk tabel `boking_jdwl`
 --
 ALTER TABLE `boking_jdwl`
   ADD PRIMARY KEY (`id_boking`);
 
 --
--- Indexes for table `diagnosa_dokter`
+-- Indeks untuk tabel `diagnosa_dokter`
 --
 ALTER TABLE `diagnosa_dokter`
   ADD PRIMARY KEY (`id_diagnosa`);
 
 --
--- Indexes for table `dokter`
+-- Indeks untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`id_dokter`);
 
 --
--- Indexes for table `jdwl_dokter`
+-- Indeks untuk tabel `jdwl_dokter`
 --
 ALTER TABLE `jdwl_dokter`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
--- Indexes for table `pasien`
+-- Indeks untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   ADD PRIMARY KEY (`id_pasien`);
 
 --
--- Indexes for table `penyakit`
+-- Indeks untuk tabel `penyakit`
 --
 ALTER TABLE `penyakit`
   ADD PRIMARY KEY (`id_penyakit`);
 
 --
--- Indexes for table `rekam_medis`
+-- Indeks untuk tabel `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
   ADD PRIMARY KEY (`id_rekam_medis`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `analisis_des`
+-- AUTO_INCREMENT untuk tabel `analisis_des`
 --
 ALTER TABLE `analisis_des`
   MODIFY `id_analisis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `boking_jdwl`
+-- AUTO_INCREMENT untuk tabel `analisis_perdesa`
+--
+ALTER TABLE `analisis_perdesa`
+  MODIFY `id_analisis_perdesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+
+--
+-- AUTO_INCREMENT untuk tabel `boking_jdwl`
 --
 ALTER TABLE `boking_jdwl`
   MODIFY `id_boking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6514;
 
 --
--- AUTO_INCREMENT for table `diagnosa_dokter`
+-- AUTO_INCREMENT untuk tabel `diagnosa_dokter`
 --
 ALTER TABLE `diagnosa_dokter`
   MODIFY `id_diagnosa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6514;
 
 --
--- AUTO_INCREMENT for table `dokter`
+-- AUTO_INCREMENT untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   MODIFY `id_dokter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `jdwl_dokter`
+-- AUTO_INCREMENT untuk tabel `jdwl_dokter`
 --
 ALTER TABLE `jdwl_dokter`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `pasien`
+-- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
   MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1455;
 
 --
--- AUTO_INCREMENT for table `penyakit`
+-- AUTO_INCREMENT untuk tabel `penyakit`
 --
 ALTER TABLE `penyakit`
   MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `rekam_medis`
+-- AUTO_INCREMENT untuk tabel `rekam_medis`
 --
 ALTER TABLE `rekam_medis`
   MODIFY `id_rekam_medis` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
