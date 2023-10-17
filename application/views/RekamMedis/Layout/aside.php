@@ -64,7 +64,23 @@
 								<span>
 									<i class="ti ti-archive"></i>
 								</span>
-								<span class="hide-menu">ANALISIS PER DESA</span>
+								<span class="hide-menu">PER DESA</span>
+							</a>
+						</li>
+						<li class="sidebar-item">
+							<a class="sidebar-link" href="<?= base_url('RekamMedis/cAnalisisPerJk') ?>" aria-expanded="false">
+								<span>
+									<i class="ti ti-chart-pie"></i>
+								</span>
+								<span class="hide-menu">PER JENIS KELAMIN</span>
+							</a>
+						</li>
+						<li class="sidebar-item">
+							<a class="sidebar-link" href="<?= base_url('RekamMedis/cAnalisisPerUmur') ?>" aria-expanded="false">
+								<span>
+									<i class="ti ti-number"></i>
+								</span>
+								<span class="hide-menu">PER UMUR</span>
 							</a>
 						</li>
 						<li class="nav-small-cap">
