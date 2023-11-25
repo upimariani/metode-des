@@ -21,7 +21,7 @@
 					?>
 					<a href="<?= base_url('Admin/cUser/create') ?>" class="btn btn-success m-1">Tambah Data User</a>
 					<div class="table-responsive">
-						<table class="table text-nowrap mb-0 align-middle">
+						<table class="myTable table text-nowrap mb-0 align-middle">
 							<thead class="text-dark fs-4">
 								<tr>
 									<th class="border-bottom-0">
@@ -88,6 +88,13 @@
 												} else if ($value->level_user == '5') {
 												?>
 													<span class="badge bg-danger rounded-3 fw-semibold">Rekam Medis Diare</span>
+												<?php
+												} else if ($value->level_user == '6') {
+												?>
+													<span class="badge bg-primary rounded-3 fw-semibold">Apotek</span>
+												<?php
+												} else {
+												?><span class="badge bg-primary rounded-3 fw-semibold">Kasir</span>
 												<?php
 												}
 												?>

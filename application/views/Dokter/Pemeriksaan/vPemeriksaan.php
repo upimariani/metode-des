@@ -120,10 +120,6 @@
 																		<label for="exampleInputEmail1" class="form-label">Saran</label>
 																		<textarea name="saran" size="5" class="form-control" placeholder="Masukkan Saran u/ Pasien..." required></textarea>
 																	</div>
-																	<div class="mb-3">
-																		<label for="exampleInputEmail1" class="form-label">Resep Dokter</label>
-																		<textarea name="resep" size="5" class="form-control" placeholder="Masukkan Resep Obat..." required></textarea>
-																	</div>
 																</div>
 																<div class="modal-footer">
 																	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

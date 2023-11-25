@@ -222,13 +222,45 @@
 										?>
 											<span class="badge bg-danger">Belum Berkunjung</span>
 										<?php
-										} else {
+										} else if ($value->stat_boking == '1') {
+										?>
+											<span class="badge bg-warning">Sudah Berkunjung</span>
+										<?php
+										} else if ($value->stat_boking == '2') {
+										?>
+											<span class="badge bg-info">Sudah Diperiksa</span>
+											<span class="badge bg-danger">Lakukan Pembayaran</span>
+										<?php
+										} else if ($value->stat_boking == '3') {
+										?>
+											<span class="badge bg-primary">Konfirmasi Apotek</span>
+										<?php
+										} else if ($value->stat_boking == '4') {
 										?>
 											<span class="badge bg-success">Sudah Berkunjung</span>
 										<?php
 										}
 										?>
 									</p>
+									<?php
+									if ($value->pembayaran == '2') {
+									?>
+										<div class="card mb-3">
+											<div class="card-body">
+												<?php echo form_open_multipart('Kasir/cPembayaran/bayar/' . $value->id_boking); ?>
+												<label>Upload Bukti Pembayaran Anda</label>
+												<hr>
+												<small>BRI<br>A/n Puskesmas Desa Talaga<br>No. Rek. 320-9327348-01-02</small>
+												<hr>
+												<input type="file" class="form-control" name="gambar" required>
+												<button type="submit" class="btn btn-warning mt-3">Kirim</button>
+												</form>
+											</div>
+										</div>
+
+									<?php
+									}
+									?>
 									<?php
 									$history = $this->db->query("SELECT * FROM `diagnosa_dokter` JOIN penyakit ON diagnosa_dokter.id_penyakit=penyakit.id_penyakit  WHERE id_boking='" . $value->id_boking . "'")->row();
 									if ($history) {
@@ -258,10 +290,7 @@
 																<th>Saran :</th>
 																<td><?= $history->saran ?></td>
 															</tr>
-															<tr>
-																<th>Resep Dokter:</th>
-																<td><?= $history->resep_dokter ?></td>
-															</tr>
+
 														</table>
 													</div>
 													<div class="modal-footer">

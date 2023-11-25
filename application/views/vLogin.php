@@ -67,7 +67,7 @@
 										<label for="exampleInputPassword1" class="form-label">User</label>
 										<select name="level" class="form-control">
 											<option value="">---Pilih Level User---</option>
-											<option value="1">Admin & Rekam Medis</option>
+											<option value="1">Admin, Rekam Medis, Apotek, Kasir</option>
 											<option value="2">Dokter</option>
 										</select>
 										<?= form_error('level', '<small class="text-danger">', '</small>') ?>

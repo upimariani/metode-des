@@ -11,6 +11,8 @@ class mHome extends CI_Model
 		$this->db->join('dokter', 'dokter.id_dokter = jdwl_dokter.id_dokter', 'left');
 		$this->db->join('pasien', 'pasien.id_pasien = boking_jdwl.id_pasien', 'left');
 		$this->db->where('pasien.id_pasien', $this->session->userdata('id_pasien'));
+		$this->db->order_by('tgl_boking', 'desc');
+
 		return $this->db->get()->result();
 	}
 }

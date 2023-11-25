@@ -45,6 +45,8 @@
 								<select name="level" class="form-control">
 									<option value="">---Pilih Level User---</option>
 									<option value="1">Admin</option>
+									<option value="6">Apotek</option>
+									<option value="7">Kasir</option>
 									<option value="2">Rekam Medis ISPA</option>
 									<option value="3">Rekam Medis Pneumonia</option>
 									<option value="4">Rekam Medis TBC</option>
@@ -56,7 +58,7 @@
 								<label for="exampleInputEmail1" class="form-label">Rekam Medis Penyakit</label>
 								<select name="rekam" class="form-control">
 									<option value="">---Pilih Analisis Penyakit---</option>
-									<option value="0">Admin</option>
+									<option value="0">Bukan Rekam Medis</option>
 									<?php
 									foreach ($penyakit as $key => $value) {
 									?>

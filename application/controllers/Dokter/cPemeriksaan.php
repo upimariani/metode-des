@@ -9,6 +9,7 @@ class cPemeriksaan extends CI_Controller
 		parent::__construct();
 		$this->load->model('mPemeriksaan');
 		$this->load->model('mPenyakit');
+		$this->load->model('mObat');
 	}
 
 	public function index()
@@ -28,8 +29,7 @@ class cPemeriksaan extends CI_Controller
 			'id_penyakit' => $this->input->post('penyakit'),
 			'id_boking' => $id,
 			'detail_penyakit' => $this->input->post('detail_penyakit'),
-			'saran' => $this->input->post('saran'),
-			'resep_dokter' => $this->input->post('resep')
+			'saran' => $this->input->post('saran')
 		);
 		$this->mPemeriksaan->insert_diagnosa($data);
 
@@ -38,6 +38,59 @@ class cPemeriksaan extends CI_Controller
 		);
 		$this->mPemeriksaan->update_status($id, $status);
 		$this->session->set_flashdata('success', 'Data Diagnosa Berhasil Disimpan!');
+		redirect('Dokter/cPemeriksaan/resep_obat/' . $id);
+	}
+
+	//resep obat pasien------------------------------------------------------------
+	public function resep_obat($id)
+	{
+		$data = array(
+			'id_boking' => $id,
+			'obat' => $this->mObat->select()
+		);
+		$this->load->view('Dokter/Layout/aside');
+		$this->load->view('Dokter/Layout/header');
+		$this->load->view('Dokter/Pemeriksaan/vResepObat', $data);
+		$this->load->view('Dokter/Layout/footer');
+	}
+	public function add($id)
+	{
+		$data = array(
+			'id' => $this->input->post('obat'),
+			'name' => $this->input->post('nama'),
+			'qty' => $this->input->post('jumlah'),
+			'price' => $this->input->post('harga'),
+			'aturan' => $this->input->post('aturan')
+		);
+		$this->cart->insert($data);
+		$this->session->set_flashdata('success', 'Obat Berhasil Ditambahkan!');
+		redirect('Dokter/cPemeriksaan/resep_obat/' . $id);
+	}
+	public function delete($rowid, $id)
+	{
+		$this->cart->remove($rowid);
+		$this->session->set_flashdata('success', 'Obat Berhasil Dihapus!');
+		redirect('Dokter/cPemeriksaan/resep_obat/' . $id);
+	}
+	public function selesai($id)
+	{
+		foreach ($this->cart->contents() as $key => $value) {
+			$data = array(
+				'id_obat' => $value['id'],
+				'id_boking' => $id,
+				'jml_obat' => $value['qty'],
+				'aturan' => $value['aturan']
+			);
+			$this->db->insert('resep_obat', $data);
+		}
+
+		//data total pembayaran
+		$total = array(
+			'total_pembayaran' => $this->cart->total()
+		);
+		$this->db->where('id_boking', $id);
+		$this->db->update('boking_jdwl', $total);
+		$this->session->set_flashdata('success', 'Obat Berhasil Dikirim ke Apotek!');
 		redirect('Dokter/cPemeriksaan');
 	}
 }

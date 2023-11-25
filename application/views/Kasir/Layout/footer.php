@@ -1,5 +1,5 @@
 <div class="py-6 px-6 text-center">
-	<p class="mb-0 fs-4">ADMIN | PUSKESMAS DTP TALAGA</p>
+	<p class="mb-0 fs-4">KASIR | PUSKESMAS DTP TALAGA</p>
 </div>
 </div>
 </div>
@@ -10,6 +10,13 @@
 <script src="<?= base_url('asset/admin/src/') ?>assets/js/app.min.js"></script>
 <script src="<?= base_url('asset/admin/src/') ?>assets/libs/simplebar/dist/simplebar.js"></script>
 <script src="<?= base_url('asset/chart/js_chart.js') ?>"></script>
+<script src="<?= base_url('asset/datatables') ?>/datatables.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$('.myTable').DataTable();
+	});
+</script>
 <script>
 	<?php
 	$data_analisis = $this->db->query("SELECT * FROM `analisis_des`")->result();
@@ -118,19 +125,6 @@
 				}]
 			}
 		}
-	});
-</script>
-<script>
-	console.log = function() {}
-	$("#obat").on('change', function() {
-
-		$(".nama").html($(this).find(':selected').attr('data-nama'));
-		$(".nama").val($(this).find(':selected').attr('data-nama'));
-
-
-		$(".harga").html($(this).find(':selected').attr('data-harga'));
-		$(".harga").val($(this).find(':selected').attr('data-harga'));
-
 	});
 </script>
 </body>
