@@ -93,8 +93,12 @@
 												?>
 													<span class="badge bg-primary rounded-3 fw-semibold">Apotek</span>
 												<?php
-												} else {
+												} else if ($value->level_user == '7') {
 												?><span class="badge bg-primary rounded-3 fw-semibold">Kasir</span>
+												<?php
+												} else if ($value->level_user == '8') {
+												?>
+													<span class="badge bg-success rounded-3 fw-semibold">Kepala Puskesmas</span>
 												<?php
 												}
 												?>

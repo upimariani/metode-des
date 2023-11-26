@@ -12,7 +12,7 @@ class mAnalisis extends CI_Model
 	}
 	public function prediksi_sebelumnya($id_penyakit)
 	{
-		return $this->db->query("SELECT * FROM `analisis_des` ORDER BY id_analisis WHERE id_penyakit='" . $id_penyakit . "' DESC LIMIT 1;")->result();
+		return $this->db->query("SELECT * FROM `analisis_des` WHERE id_penyakit='" . $id_penyakit . "' ORDER BY id_analisis DESC LIMIT 1")->result();
 	}
 	public function insert_rekam_medis($data)
 	{
@@ -93,7 +93,7 @@ class mAnalisis extends CI_Model
 	}
 	public function periode_perumur($id_penyakit, $alamat, $umur_bawah, $umur_atas)
 	{
-		return $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, YEAR(tgl_periksa) as tahun, id_penyakit,(YEAR(CURDATE()) - YEAR(tanggal_lahir)) AS umur FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $id_penyakit . "' AND alamat='" . $alamat . "' AND (YEAR(CURDATE()) - YEAR(tanggal_lahir)) >= '" . $umur_bawah . "' && (YEAR(CURDATE()) - YEAR(tanggal_lahir)) <= '" . $umur_atas . "' GROUP BY  alamat, YEAR(tgl_periksa)")->result();
+		return $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, YEAR(tgl_periksa) as tahun, id_penyakit,(YEAR(CURDATE()) - YEAR(tanggal_lahir)) AS umur FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $id_penyakit . "' AND alamat='" . $alamat . "' AND YEAR(tanggal_lahir) >= '" . $umur_bawah . "' AND YEAR(tanggal_lahir) <= '" . $umur_atas . "' GROUP BY  alamat, YEAR(tgl_periksa)")->result();
 	}
 	public function analisis_perumur_sebelumnya($id_penyakit, $alamat, $umur_bawah, $umur_atas)
 	{

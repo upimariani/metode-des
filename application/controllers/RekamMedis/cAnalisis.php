@@ -46,7 +46,7 @@ class cAnalisis extends CI_Controller
 			'jml_pengidap' => $total
 		);
 		$this->mAnalisis->insert_rekam_medis($data_rekam_medis);
-		
+
 
 		$id_rekam_medis = $this->db->query("SELECT MAX(id_rekam_medis) as id FROM `rekam_medis`")->row();
 		$nilai_t = $this->db->query("SELECT MAX(id_analisis) as id, t+1 as t FROM `analisis_des`")->row();

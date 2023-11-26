@@ -54,6 +54,15 @@
 									<option value="2" <?php if ($user->level_user == '2') {
 															echo 'selected';
 														}  ?>>Rekam Medis ISPA</option>
+									<option value="6" <?php if ($user->level_user == '6') {
+															echo 'selected';
+														}  ?>>Apotek</option>
+									<option value="7" <?php if ($user->level_user == '7') {
+															echo 'selected';
+														}  ?>>Kasir</option>
+									<option value="8" <?php if ($user->level_user == '8') {
+															echo 'selected';
+														}  ?>>Kepala Puskesmas</option>
 									<option value="3" <?php if ($user->level_user == '3') {
 															echo 'selected';
 														}  ?>>Rekam Medis Pneumonia</option>

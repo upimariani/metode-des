@@ -40,9 +40,6 @@ class cAnalisisDES extends CI_Controller
 				$id_analisis = $value->id_analisis;
 			}
 		}
-
-
-
 		//data rekam medis fakta
 		$data_rekam_medis = array(
 			'id_penyakit' => '1',
@@ -119,14 +116,14 @@ class cAnalisisDES extends CI_Controller
 				'forecast' => '0',
 				'jml_pengidap' => $value->jml
 			);
-			// $this->db->insert('analisis_perdesa', $data);
+			$this->db->insert('analisis_perdesa', $data);
 		}
 	}
 	public function hitung_perjk()
 	{
-		$variabel = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, jk, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE YEAR(tgl_periksa) = '2018' AND jk='P' GROUP BY id_penyakit, alamat, jk")->result();
+		$variabel = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, jk, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE YEAR(tgl_periksa) = '2018' AND jk='L' GROUP BY id_penyakit, alamat, jk")->result();
 		foreach ($variabel as $key => $value) {
-			$where = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, jk, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $value->id_penyakit . "' AND alamat='" . $value->alamat . "' AND jk='P' GROUP BY id_penyakit, alamat, YEAR(tgl_periksa), jk")->result();
+			$where = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, jk, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $value->id_penyakit . "' AND alamat='" . $value->alamat . "' AND jk='L' GROUP BY id_penyakit, alamat, YEAR(tgl_periksa), jk")->result();
 			foreach ($where as $key => $item) {
 				echo $item->jml;
 				echo $item->alamat;
@@ -169,9 +166,9 @@ class cAnalisisDES extends CI_Controller
 	}
 	public function hitung_perumur()
 	{
-		$variabel = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, (YEAR(CURDATE()) - YEAR(tanggal_lahir)) AS umur, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE YEAR(tgl_periksa) = '2018' AND (YEAR(CURDATE()) - YEAR(tanggal_lahir)) >= '21' && (YEAR(CURDATE()) - YEAR(tanggal_lahir)) <= '26' GROUP BY id_penyakit, alamat")->result();
+		$variabel = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE YEAR(tgl_periksa) = '2018' AND YEAR(tanggal_lahir) >= '1975' AND YEAR(tanggal_lahir) <= '2005'  GROUP BY id_penyakit, alamat")->result();
 		foreach ($variabel as $key => $value) {
-			$where = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, (YEAR(CURDATE()) - YEAR(tanggal_lahir)) AS umur, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $value->id_penyakit . "' AND alamat='" . $value->alamat . "' AND (YEAR(CURDATE()) - YEAR(tanggal_lahir)) >= '21' && (YEAR(CURDATE()) - YEAR(tanggal_lahir)) <= '26' GROUP BY id_penyakit, alamat, YEAR(tgl_periksa)")->result();
+			$where = $this->db->query("SELECT COUNT(boking_jdwl.id_pasien) as jml, alamat, YEAR(tgl_periksa) as tahun, id_penyakit FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON boking_jdwl.id_pasien=pasien.id_pasien WHERE id_penyakit='" . $value->id_penyakit . "' AND alamat='" . $value->alamat . "' AND YEAR(tanggal_lahir) >= '1975' AND YEAR(tanggal_lahir) <= '2005' GROUP BY id_penyakit, alamat, YEAR(tgl_periksa)")->result();
 			foreach ($where as $key => $item) {
 				echo $item->jml;
 				echo $item->alamat;
@@ -201,8 +198,8 @@ class cAnalisisDES extends CI_Controller
 			$data = array(
 				'id_penyakit' => $value->id_penyakit,
 				'nama_desa' => $value->alamat,
-				'umur_bawah' => '21',
-				'umur_atas' => '26',
+				'umur_bawah' => '1975',
+				'umur_atas' => '2005',
 				'thn_periode' => $value->tahun,
 				't' => '1',
 				'st' => $value->jml,

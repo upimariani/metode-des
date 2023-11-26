@@ -42,6 +42,9 @@ class cLogin extends CI_Controller
 					} else if ($data->level_user == '7') {
 						$this->session->set_flashdata('success', 'Selamat Datang Kasir!');
 						redirect('Kasir/cPembayaran');
+					} else if ($data->level_user == '8') {
+						$this->session->set_flashdata('success', 'Selamat Datang Kepala Puskesmas!');
+						redirect('KepalaPuskesmas/cLaporanPenyakit');
 					} else {
 						$this->session->set_flashdata('success', 'Selamat Datang Rekam Medis!');
 						redirect('RekamMedis/cDashboard');

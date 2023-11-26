@@ -13,7 +13,7 @@
 					<a class="nav-link nav-icon-hover" href="<?= base_url('Admin/cBokingPasien') ?>">
 						<i class="ti ti-bell-ringing"></i>
 						<?php
-						$notif = $this->db->query("SELECT COUNT(id_boking) as notif FROM `boking_jdwl` WHERE stat_boking !='2'")->row();
+						$notif = $this->db->query("SELECT COUNT(id_boking) as notif FROM `boking_jdwl` WHERE stat_boking ='0'")->row();
 						?>
 						<span class="badge bg-info"><?= $notif->notif ?></span>
 					</a>

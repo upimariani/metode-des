@@ -50,10 +50,11 @@
 													Range Umur
 												</button>
 												<ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/21/26')  ?>">26 - 21 tahun</a></li>
-													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/15/20')  ?>">20 - 15 tahun</a></li>
-													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/9/14')  ?>">14 - 9 tahun</a></li>
-													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/3/8')  ?>">8 - 3 tahun</a></li>
+													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/1975/2005')  ?>">Tahun 1975 - 2005</a>
+													</li>
+													<li><a class="dropdown-item" href="<?= base_url('RekamMedis/cAnalisisPerUmur/analisis/' . $value->alamat . '/2006/2022')  ?>">
+															Tahun 2006 - 2022</a>
+													</li>
 												</ul>
 											</div>
 										</td>

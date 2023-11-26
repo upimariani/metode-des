@@ -55,6 +55,16 @@ class cPembayaran extends CI_Controller
 			redirect('Kasir/cPembayaran/detail_pembayaran/' . $id);
 		}
 	}
+	public function konfirmasi_pembayaran($id)
+	{
+		$data = array(
+			'stat_boking' => '3'
+		);
+		$this->db->where('id_boking', $id);
+		$this->db->update('boking_jdwl', $data);
+		$this->session->set_flashdata('success', 'Obat Berhasil Diterima Pasien!');
+		redirect('Kasir/cPembayaran/detail_pembayaran/' . $id);
+	}
 
 	//pasien
 	public function bayar($id)
