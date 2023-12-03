@@ -43,7 +43,7 @@ class mPemeriksaan extends CI_Model
 
 
 		$this->db->where('dokter.id_dokter', $this->session->userdata('id_dokter'));
-		$this->db->where('stat_boking=2');
+		$this->db->where('stat_boking=4');
 
 
 		return $this->db->get()->result();

@@ -108,7 +108,7 @@
 																		<?php
 																		if ($value->stat_boking == '0') {
 																		?>
-																			<a href="<?= base_url('Admin/cBokingPasien/pemeriksaan_dokter/' . $value->id_boking) ?>" class="btn btn-warning m-2">Pemeriksaan</a>
+																			<a href="<?= base_url('Admin/cBokingPasien/pemeriksaan_dokter/' . $value->id_boking) ?>" class="btn btn-warning m-2">Konfirmasi</a>
 																		<?php
 																		}
 																		?>

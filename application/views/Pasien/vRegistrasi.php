@@ -4,13 +4,10 @@
 		<div class="section-overlay"></div>
 		<div class="container">
 			<div class="row">
-
 				<div class="col-lg-6 col-12 mx-auto">
 					<form class="custom-form donate-form" action="<?= base_url('Pasien/cLogin/register') ?>" method="post" role="form">
 						<h3 class="mb-4">Registrasi Pasien</h3>
-
 						<div class="row">
-
 							<div class="col-lg-6 col-12 mt-2">
 								<label>Nama Pasien</label>
 								<input type="text" name="nama" class="form-control" placeholder="masukkan nama">
@@ -21,7 +18,7 @@
 								<input type="text" name="no_hp" class="form-control" placeholder="masukkan no hp">
 								<?= form_error('no_hp', '<small class="text-danger">', '</small>') ?>
 							</div>
-							<div class="col-lg-6 col-12 mt-2">
+							<div class="col-lg-12 col-12 mt-2">
 								<label>Alamat</label>
 								<select name="alamat" class="form-control">
 									<option value="">---Pilih Alamat Desa---</option>
@@ -46,9 +43,14 @@
 								<?= form_error('alamat', '<small class="text-danger">', '</small>') ?>
 							</div>
 							<div class="col-lg-6 col-12 mt-2">
-								<label>Tempat, Tanggal Lahir</label>
-								<input type="text" name="ttl" class="form-control" placeholder="masukkan ttl">
-								<?= form_error('ttl', '<small class="text-danger">', '</small>') ?>
+								<label>Tempat Lahir</label>
+								<input type="text" name="tempat" class="form-control" placeholder="masukkan tempat lahir">
+								<?= form_error('tempat', '<small class="text-danger">', '</small>') ?>
+							</div>
+							<div class="col-lg-6 col-12 mt-2">
+								<label>Tanggal Lahir</label>
+								<input type="date" name="tanggal" class="form-control" placeholder="masukkan tanggal">
+								<?= form_error('tanggal', '<small class="text-danger">', '</small>') ?>
 							</div>
 							<div class="col-lg-6 col-12 mt-2">
 								<label>Berat Badan</label>
@@ -64,8 +66,8 @@
 								<label>Jenis Kelamin</label>
 								<select name="jk" class="form-control">
 									<option value="">---Pilih Jenis Kelamin---</option>
-									<option value="Laki - Laki">Laki - Laki</option>
-									<option value="Perempuan">Perempuan</option>
+									<option value="L">Laki - Laki</option>
+									<option value="P">Perempuan</option>
 								</select>
 								<?= form_error('jk', '<small class="text-danger">', '</small>') ?>
 							</div>

@@ -90,7 +90,7 @@ class cPemeriksaan extends CI_Controller
 		);
 		$this->db->where('id_boking', $id);
 		$this->db->update('boking_jdwl', $total);
-		$this->session->set_flashdata('success', 'Obat Berhasil Dikirim ke Apotek!');
+		$this->session->set_flashdata('success', 'Obat Berhasil Dikirim ke Kasir!');
 		redirect('Dokter/cPemeriksaan');
 	}
 }

@@ -20,7 +20,7 @@
 					}
 					?>
 					<div class="table-responsive">
-						<table class="table text-nowrap mb-0 align-middle">
+						<table class="myTable text-nowrap mb-0 align-middle">
 							<thead class="text-dark fs-4">
 								<tr>
 									<th class="border-bottom-0">
@@ -50,11 +50,11 @@
 								foreach ($pemeriksaan as $key => $value) {
 								?>
 									<tr>
-										<td class="border-bottom-0">
-											<h6 class="fw-semibold mb-0"><?= $no++ ?></h6>
+										<td>
+											<h6><?= $no++ ?></h6>
 										</td>
-										<td class="border-bottom-0">
-											<p class="mb-0 fw-normal"><span class="badge bg-success">00<?= $value->no_antrian ?></span></p>
+										<td>
+											<p class=" mb-0 fw-normal"><span class="badge bg-success">00<?= $value->no_antrian ?></span></p>
 											<p class="mb-0 fw-normal"><?= $value->tgl_periksa ?></p>
 											<?php
 											if ($value->stat_boking == '0') {
@@ -89,7 +89,6 @@
 											<h6 class="fw-semibold mb-0 fs-2">
 
 												<p><strong>Saran: </strong> <?= $value->saran ?></p>
-												<p><strong>Resep Obat: </strong> <?= $value->resep_dokter ?></p>
 											</h6>
 										</td>
 									</tr>

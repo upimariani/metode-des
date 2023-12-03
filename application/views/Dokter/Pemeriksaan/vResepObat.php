@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="card">
 			<div class="card-body">
-				<h5 class="card-title fw-semibold mb-4">Obat</h5>
+				<h5 class="card-title fw-semibold mb-4">Resep Dokter</h5>
 				<div class="card mb-3">
 					<?php
 					$qty = 0;
@@ -58,7 +58,7 @@
 				</div>
 				<div class="card mb-0">
 					<div class="card-header">
-						<legend>Resep Obat Dokter Pasien</legend>
+						<legend>Resep Obat dari Dokter</legend>
 						<hr>
 					</div>
 					<div class="card-body">

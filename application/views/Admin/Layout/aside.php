@@ -30,14 +30,15 @@
 					<ul id="sidebarnav">
 						<li class="nav-small-cap">
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-							<span class="hide-menu">Home</span>
+							<span class="hide-menu">BOKING</span>
 						</li>
 						<li class="sidebar-item">
-							<a class="sidebar-link" href="<?= base_url('Admin/cDashboard') ?>" aria-expanded="false">
+							<a class="sidebar-link" href="<?= base_url('Admin/cBokingPasien') ?>" aria-expanded="false">
 								<span>
-									<i class="ti ti-layout-dashboard"></i>
+									<i class="ti ti-database"></i>
+
 								</span>
-								<span class="hide-menu">Dashboard</span>
+								<span class="hide-menu">BOKING JADWAL PASIEN</span>
 							</a>
 						</li>
 						<li class="nav-small-cap">
@@ -78,19 +79,7 @@
 							</a>
 						</li>
 
-						<li class="nav-small-cap">
-							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-							<span class="hide-menu">BOKING</span>
-						</li>
-						<li class="sidebar-item">
-							<a class="sidebar-link" href="<?= base_url('Admin/cBokingPasien') ?>" aria-expanded="false">
-								<span>
-									<i class="ti ti-database"></i>
 
-								</span>
-								<span class="hide-menu">BOKING JADWAL PASIEN</span>
-							</a>
-						</li>
 
 						<li class="nav-small-cap">
 							<i class="ti ti-dots nav-small-cap-icon fs-4"></i>

@@ -22,7 +22,7 @@ class cPenyakit extends CI_Controller
 	{
 		$this->form_validation->set_rules('nama', 'Nama Dokter', 'required');
 		$this->form_validation->set_rules('stat', 'Hari', 'required');
-		$this->form_validation->set_rules('gejala', 'Jam', 'required');
+		// $this->form_validation->set_rules('gejala', 'Jam', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 
@@ -34,7 +34,7 @@ class cPenyakit extends CI_Controller
 			$data = array(
 				'nama_penyakit' => $this->input->post('nama'),
 				'stat_penyakit' => $this->input->post('stat'),
-				'gejala' => $this->input->post('gejala')
+				// 'gejala' => $this->input->post('gejala')
 			);
 			$this->mPenyakit->insert($data);
 			$this->session->set_flashdata('success', 'Data Penyakit Berhasil Disimpan!');
@@ -45,7 +45,7 @@ class cPenyakit extends CI_Controller
 	{
 		$this->form_validation->set_rules('nama', 'Nama Dokter', 'required');
 		$this->form_validation->set_rules('stat', 'Hari', 'required');
-		$this->form_validation->set_rules('gejala', 'Jam', 'required');
+		// $this->form_validation->set_rules('gejala', 'Jam', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$data = array(
@@ -59,7 +59,7 @@ class cPenyakit extends CI_Controller
 			$data = array(
 				'nama_penyakit' => $this->input->post('nama'),
 				'stat_penyakit' => $this->input->post('stat'),
-				'gejala' => $this->input->post('gejala')
+				// 'gejala' => $this->input->post('gejala')
 			);
 			$this->mPenyakit->update($id, $data);
 			$this->session->set_flashdata('success', 'Data Penyakit Berhasil Disimpan!');

@@ -25,11 +25,11 @@
 							<?= form_error('stat', '<small class="text-danger">', '</small>') ?>
 						</div>
 
-						<div class="mb-3">
+						<!-- <div class="mb-3">
 							<label for="exampleInputEmail1" class="form-label">Gejala</label>
 							<textarea class="form-control" name="gejala"><?= $penyakit->gejala ?></textarea>
 							<?= form_error('gejala', '<small class="text-danger">', '</small>') ?>
-						</div>
+						</div> -->
 
 						<div class="mb-3">
 							<button type="submit" class="btn btn-success px-5"><i class="icon-lock"></i> Save</button>

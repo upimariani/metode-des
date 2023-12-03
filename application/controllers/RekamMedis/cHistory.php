@@ -9,6 +9,7 @@ class cHistory extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('mHistory');
+		$this->load->model('mPembayaran');
 	}
 
 	public function index()
@@ -19,6 +20,17 @@ class cHistory extends CI_Controller
 		$this->load->view('RekamMedis/Layout/aside');
 		$this->load->view('RekamMedis/Layout/header');
 		$this->load->view('RekamMedis/HistoryPemeriksaan/vHistory', $data);
+		$this->load->view('RekamMedis/Layout/footer');
+	}
+	public function detail_history($id)
+	{
+		$data = array(
+			'pembayaran' => $this->mPembayaran->pembayaran_kasir(),
+			'detail' => $this->mPembayaran->detail_pembayaran($id)
+		);
+		$this->load->view('RekamMedis/Layout/aside');
+		$this->load->view('RekamMedis/Layout/header');
+		$this->load->view('RekamMedis/HistoryPemeriksaan/vDetailHistory', $data);
 		$this->load->view('RekamMedis/Layout/footer');
 	}
 }

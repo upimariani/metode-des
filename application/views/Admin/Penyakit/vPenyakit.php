@@ -34,9 +34,9 @@
 										<h6 class="fw-semibold mb-0">Status Penyakit</h6>
 									</th>
 
-									<th class="border-bottom-0">
+									<!-- <th class="border-bottom-0">
 										<h6 class="fw-semibold mb-0">Gejala</h6>
-									</th>
+									</th> -->
 
 									<th class="border-bottom-0">
 										<h6 class="fw-semibold mb-0">Action</h6>
@@ -58,9 +58,9 @@
 										<td class="border-bottom-0">
 											<p class="mb-0 fw-normal"><?= $value->stat_penyakit ?></p>
 										</td>
-										<td class="border-bottom-0">
+										<!-- <td class="border-bottom-0">
 											<p class="mb-0 fw-normal"><?= $value->gejala ?></p>
-										</td>
+										</td> -->
 
 										<td class="border-bottom-0">
 											<h6 class="fw-semibold mb-0 fs-4">

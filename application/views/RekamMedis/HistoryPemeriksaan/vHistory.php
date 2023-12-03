@@ -34,7 +34,11 @@
 										<h6 class="fw-semibold mb-0">Tanggal Pemeriksaan</h6>
 									</th>
 
-
+									<th class="border-bottom-0">
+										<h6 class="fw-semibold mb-0">Keluhan Pasien</h6>
+									</th>
+									<th class="border-bottom-0">
+									</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -54,7 +58,14 @@
 										<td class="border-bottom-0">
 											<span class="fw-normal"><?= $value->tgl_periksa ?></span>
 										</td>
-
+										<td class="border-bottom-0">
+											<span class="fw-normal"><?= $value->keluhan_pasien ?></span>
+										</td>
+										<td class="border-bottom-0">
+											<h6 class="fw-semibold mb-0 fs-4">
+												<a href="<?= base_url('RekamMedis/cHistory/detail_history/' . $value->id_boking) ?>" class="btn btn-danger m-1">Detail History</a>
+											</h6>
+										</td>
 
 									</tr>
 								<?php

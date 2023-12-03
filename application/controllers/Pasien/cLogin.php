@@ -46,7 +46,8 @@ class cLogin extends CI_Controller
 		$this->form_validation->set_rules('nama', 'Nama Pasien', 'required');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_rules('no_hp', 'No Telepon', 'required');
-		$this->form_validation->set_rules('ttl', 'Tempat, Tanggal Lahir', 'required');
+		$this->form_validation->set_rules('tempat', 'Tempat, Tanggal Lahir', 'required');
+		$this->form_validation->set_rules('tanggal', 'Tempat, Tanggal Lahir', 'required');
 		$this->form_validation->set_rules('bb', 'Berat Badan', 'required');
 		$this->form_validation->set_rules('tinggi', 'Tinggi Badan', 'required');
 		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
@@ -65,7 +66,8 @@ class cLogin extends CI_Controller
 				'jk' => $this->input->post('jk'),
 				'bb' => $this->input->post('bb'),
 				'tinggi' => $this->input->post('tinggi'),
-				'ttl' => $this->input->post('ttl'),
+				'tempat_lahir' => $this->input->post('tempat'),
+				'tanggal_lahir' => $this->input->post('tanggal'),
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password')
 			);

@@ -198,7 +198,7 @@
 							foreach ($boking as $key => $value) {
 							?>
 								<div class="contact-info">
-									<h5 class="mb-3"><?= $value->nama_dokter ?> | <?= $value->ahli_dokter ?></h5>
+									<h5 class="mb-3"><?= $value->nama_dokter ?> | <?= $value->ahli_dokter ?> <?= $value->id_boking ?></h5>
 
 									<p class="d-flex mb-2">
 										<i class="bi-geo-alt me-2"></i>
@@ -249,6 +249,9 @@
 											<div class="card-body">
 												<?php echo form_open_multipart('Kasir/cPembayaran/bayar/' . $value->id_boking); ?>
 												<label>Upload Bukti Pembayaran Anda</label>
+												<p>
+													Total Pembayaran : Rp. <?= number_format($value->total_pembayaran) ?>
+												</p>
 												<hr>
 												<small>BRI<br>A/n Puskesmas Desa Talaga<br>No. Rek. 320-9327348-01-02</small>
 												<hr>
@@ -262,14 +265,14 @@
 									}
 									?>
 									<?php
-									$history = $this->db->query("SELECT * FROM `diagnosa_dokter` JOIN penyakit ON diagnosa_dokter.id_penyakit=penyakit.id_penyakit  WHERE id_boking='" . $value->id_boking . "'")->row();
+									$history = $this->db->query("SELECT * FROM `diagnosa_dokter` JOIN boking_jdwl ON boking_jdwl.id_boking=diagnosa_dokter.id_boking  JOIN penyakit ON diagnosa_dokter.id_penyakit=penyakit.id_penyakit  WHERE diagnosa_dokter.id_boking='" . $value->id_boking . "'")->row();
 									if ($history) {
 									?>
-										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#histori<?= $history->id_boking ?>">
 											History Pemeriksaan
 										</button>
 										<!-- Modal -->
-										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="histori<?= $history->id_boking ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -287,10 +290,34 @@
 																<td><?= $history->detail_penyakit ?></td>
 															</tr>
 															<tr>
-																<th>Saran :</th>
+																<th>Saran : </th>
 																<td><?= $history->saran ?></td>
 															</tr>
+															<tr>
+																<th>Saran : </th>
+																<td>Rp. <?= number_format($history->total_pembayaran)  ?></td>
+															</tr>
 
+
+
+														</table>
+														<hr>
+														<h5>Resep Dokter</h5>
+														<table class="table">
+															<?php
+															//catetan resep
+															$resep = $this->db->query("SELECT * FROM `resep_obat` JOIN obat ON obat.id_obat=resep_obat.id_obat WHERE id_boking='" . $history->id_boking . "'")->result();
+															foreach ($resep as $key => $value) {
+															?>
+																<tr>
+																	<td><?= $value->nama_obat ?></td>
+																	<td><?= $value->jml_obat ?></td>
+																	<td><?= $value->aturan ?></td>
+																</tr>
+
+															<?php
+															}
+															?>
 														</table>
 													</div>
 													<div class="modal-footer">

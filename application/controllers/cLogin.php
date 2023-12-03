@@ -35,7 +35,7 @@ class cLogin extends CI_Controller
 
 					if ($data->level_user == '1') {
 						$this->session->set_flashdata('success', 'Selamat Datang Admin!');
-						redirect('Admin/cDashboard');
+						redirect('Admin/cBokingPasien');
 					} else if ($data->level_user == '6') {
 						$this->session->set_flashdata('success', 'Selamat Datang Apotek!');
 						redirect('Apotek/cObat');
@@ -61,7 +61,7 @@ class cLogin extends CI_Controller
 				if ($data) {
 					$id = $data->id_dokter;
 					$this->session->set_userdata('id_dokter', $id);
-					redirect('Dokter/cDashboard');
+					redirect('Dokter/cPemeriksaan');
 				} else {
 					$this->session->set_flashdata('error', 'Username dan Password Salah!');
 					redirect('cLogin');
