@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ADMIN | PUSKESMAS DTP TALAGA</title>
+	<title>BAG. PENDAFTARAN | PUSKESMAS DTP TALAGA</title>
 	<link rel="shortcut icon" type="image/png" href="<?= base_url('asset/admin/src/') ?>assets/images/logos/favicon.png" />
 	<link rel="stylesheet" href="<?= base_url('asset/admin/src/') ?>assets/css/styles.min.css" />
 	<link href="<?= base_url('asset/datatables') ?>/datatables.min.css" rel="stylesheet">

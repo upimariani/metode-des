@@ -50,7 +50,7 @@
 									<option value="">---Pilih Level User---</option>
 									<option value="1" <?php if ($user->level_user == '1') {
 															echo 'selected';
-														}  ?>>Admin</option>
+														}  ?>>Bag. Pendaftaran</option>
 									<option value="2" <?php if ($user->level_user == '2') {
 															echo 'selected';
 														}  ?>>Rekam Medis ISPA</option>

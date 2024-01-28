@@ -13,7 +13,7 @@ class mPembayaran extends CI_Model
 	}
 	public function detail_pembayaran($id)
 	{
-		$data['pasien'] = $this->db->query("SELECT * FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_diagnosa JOIN pasien ON pasien.id_pasien=boking_jdwl.id_pasien JOIN penyakit ON penyakit.id_penyakit=diagnosa_dokter.id_penyakit WHERE boking_jdwl.id_boking='" . $id . "'")->row();
+		$data['pasien'] = $this->db->query("SELECT * FROM `boking_jdwl` JOIN diagnosa_dokter ON boking_jdwl.id_boking=diagnosa_dokter.id_boking JOIN pasien ON pasien.id_pasien=boking_jdwl.id_pasien JOIN penyakit ON penyakit.id_penyakit=diagnosa_dokter.id_penyakit WHERE boking_jdwl.id_boking='" . $id . "'")->row();
 		$data['obat'] = $this->db->query("SELECT * FROM `boking_jdwl` JOIN resep_obat ON boking_jdwl.id_boking=resep_obat.id_boking JOIN obat ON obat.id_obat=resep_obat.id_obat WHERE boking_jdwl.id_boking='" . $id . "'")->result();
 		return $data;
 	}

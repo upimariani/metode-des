@@ -44,7 +44,7 @@
 								<label for="exampleInputEmail1" class="form-label">Level User</label>
 								<select name="level" class="form-control">
 									<option value="">---Pilih Level User---</option>
-									<option value="1">Admin</option>
+									<option value="1">Bag. Pendaftaran</option>
 									<option value="6">Apotek</option>
 									<option value="7">Kasir</option>
 									<option value="8">Kepala Puskesmas</option>

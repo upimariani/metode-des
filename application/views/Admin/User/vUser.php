@@ -71,7 +71,7 @@
 												<?php
 												if ($value->level_user == '1') {
 												?>
-													<span class="badge bg-primary rounded-3 fw-semibold">Admin</span>
+													<span class="badge bg-primary rounded-3 fw-semibold">Bagian Pendaftaran</span>
 												<?php
 												} else if ($value->level_user == '2') {
 												?>
